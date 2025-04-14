@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import InitialComponent from './components/InitialComponent.vue';
+
 
 </script>
 
