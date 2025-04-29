@@ -4,7 +4,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/initial-component",
+      path: "/",
       name: "initialComponent",
       component: () =>
         import("@/components/InitialComponent.vue"),
