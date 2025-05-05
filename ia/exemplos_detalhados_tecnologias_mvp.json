@@ -1,0 +1,127 @@
+[
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi pipelines de dados com Python utilizando pandas para tratamento de dados, além de scikit-learn para criação de modelos preditivos em projetos de previsão de demanda.",
+    "score": 90
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Implementei rotinas de automação em Python para extração e transformação de dados oriundos de arquivos Excel e bancos de dados relacionais.",
+    "score": 75
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Participei de projetos onde usei Python apenas para pequenos scripts de automação e raspagem de dados da web com BeautifulSoup.",
+    "score": 55
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Realizei análises básicas com Python e matplotlib para gerar gráficos de desempenho comercial para apresentação mensal.",
+    "score": 60
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Utilizei Python em conjunto com o framework Flask para construção de APIs RESTful voltadas à manipulação de dados internos.",
+    "score": 82
+  },
+  {
+    "tecnologia": "javascript",
+    "texto": "Implementei diversas interfaces reativas usando JavaScript com manipulação direta do DOM, validação de formulários complexos e integração com APIs RESTful.",
+    "score": 80
+  },
+  {
+    "tecnologia": "javascript",
+    "texto": "Desenvolvi funcionalidades simples com JavaScript vanilla, como menus dropdown e sliders em páginas estáticas.",
+    "score": 50
+  },
+  {
+    "tecnologia": "javascript",
+    "texto": "Atuei com JavaScript na construção de dashboards dinâmicos, consumindo dados de APIs em tempo real para relatórios executivos.",
+    "score": 75
+  },
+  {
+    "tecnologia": "javascript",
+    "texto": "Utilizei JavaScript para integrações básicas com bibliotecas de terceiros em sistemas legados.",
+    "score": 58
+  },
+  {
+    "tecnologia": "javascript",
+    "texto": "Implementei lógica de negócio em páginas do sistema interno utilizando JavaScript assíncrono com Promises e Fetch API.",
+    "score": 72
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Desenvolvi queries otimizadas em SQL para extração de dados analíticos em grandes volumes, utilizando joins complexos, CTEs e índices em PostgreSQL.",
+    "score": 88
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Criei relatórios operacionais utilizando comandos básicos em SQL para consultar tabelas e aplicar filtros simples.",
+    "score": 50
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Implementei procedures e triggers em SQL Server para automação de regras de negócio no banco de dados.",
+    "score": 80
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Participei da modelagem relacional e criação de schemas otimizados para um novo módulo do sistema ERP.",
+    "score": 76
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Utilizei SQL para construção de painéis de BI, com foco em KPIs operacionais e indicadores de performance.",
+    "score": 70
+  },
+  {
+    "tecnologia": "c#",
+    "texto": "Desenvolvi aplicações web com ASP.NET MVC, implementando controle de autenticação, integração com banco de dados via Entity Framework e padrões de projeto.",
+    "score": 85
+  },
+  {
+    "tecnologia": "c#",
+    "texto": "Criei aplicações desktop simples em C# utilizando Windows Forms, voltadas para controle de estoque local.",
+    "score": 60
+  },
+  {
+    "tecnologia": "c#",
+    "texto": "Atuei com manutenção de sistemas legados escritos em C#, fazendo correções e pequenas melhorias em módulos existentes.",
+    "score": 55
+  },
+  {
+    "tecnologia": "c#",
+    "texto": "Implementei serviços RESTful com C# e ASP.NET Core, integrando com bancos SQL Server e autenticação JWT.",
+    "score": 80
+  },
+  {
+    "tecnologia": "c#",
+    "texto": "Participei da refatoração de uma aplicação monolítica em C#, aplicando princípios de clean code e testes automatizados com NUnit.",
+    "score": 78
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi microsserviços com Java e Spring Boot, implementando autenticação OAuth2, persistência com Hibernate e filas com Kafka.",
+    "score": 88
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Participei de projetos Java utilizando apenas lógica de back-end em sistemas de pequeno porte.",
+    "score": 60
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Trabalhei com manutenção de sistemas Java baseados em servlets, realizando correções e inclusão de logs de monitoramento.",
+    "score": 50
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Implementei uma aplicação de monitoramento de dispositivos IoT com Java, integrando APIs REST e banco MongoDB.",
+    "score": 78
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Criei serviços web SOAP e REST com Java para sistemas de faturamento de operadora de telecom.",
+    "score": 75
+  }
+]
