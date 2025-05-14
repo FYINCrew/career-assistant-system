@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import InitialComponent from './components/InitialComponent.vue';
-
-
 </script>
 
 <template>
@@ -11,7 +8,14 @@ import InitialComponent from './components/InitialComponent.vue';
   <RouterView />
 </template>
 
-<style scoped>
+<style>
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -73,4 +77,6 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
+
+
 </style>

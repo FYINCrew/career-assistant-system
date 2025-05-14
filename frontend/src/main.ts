@@ -2,13 +2,34 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import PrimeVue from 'primevue/config';
-import Material from '@primeuix/themes/material';
+import Aura from '@primeuix/themes/aura';
+
+
+
 
 const app = createApp(App)
 app.use(router)
 app.use(PrimeVue, {
+    semantic:{
+        colorScheme: {
+            light: {
+                primary: {
+                    color: '#ffffff',
+                    inverseColor: '#ffffff',
+                    hoverColor: '{zinc.900}',
+                    activeColor: '{zinc.800}'
+                },
+                highlight: {
+                    background: '{zinc.950}',
+                    focusBackground: '{zinc.700}',
+                    color: '#ffffff',
+                    focusColor: '#ffffff'
+                }
+            },
+        }
+    },
     theme: {
-        preset: Material,
+        preset: Aura,
         options: {
             darkModeSelector: false,
         },
