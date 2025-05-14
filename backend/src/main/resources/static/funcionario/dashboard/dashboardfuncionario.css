@@ -1,0 +1,171 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #4384ad;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #4384ad;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #4384ad; /* Altere aqui para a cor desejada */
+}
+
+nav a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-align: center;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.content {
+    padding: 20px;
+}
+
+.container {
+    margin-top: 50px;
+    margin-bottom: 0; /* Remove a margem inferior */
+}
+
+.chart-container {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 1rem;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    transition: all 0.3s ease-out;
+    text-align: center;
+    padding: 20px;
+    width: 300px;
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.timeline {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    background: none; /* Alterado para 'none' para tornar o fundo transparente */
+    border-radius: 8px;
+    box-shadow: none; /* Removido o box-shadow */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: #ddd;
+    transform: translateX(-50%);
+}
+
+.timeline-arrow {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #333;
+    transform: translateX(-50%);
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline-item {
+    position: relative;
+    width: 45%;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: left;
+    padding-right: 25%;
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+    padding-left: 25%;
+}
+
+.timeline-item.left::before, .timeline-item.right::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.timeline-item.left::before {
+    right: -10px;
+}
+
+.timeline-item.right::before {
+    left: -10px;
+}
+
+.timeline-item-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.timeline-item-title {
+    width: 100%; /* Ajustado para ocupar toda a largura */
+    text-align: center; /* Centraliza o texto */
+}
+.timeline-item-description {
+    width: 45%;
+    text-align: right;
+}
