@@ -76,10 +76,5 @@ public class GestorController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/addRequisito")
-    public ResponseEntity<List<String>> addRequisito(@RequestBody FuncionarioRequisitos requisito){
-        System.out.println(requisito);
-        return ResponseEntity.ok(gestorService.addRequisito(requisito));
-    }
 
 }
