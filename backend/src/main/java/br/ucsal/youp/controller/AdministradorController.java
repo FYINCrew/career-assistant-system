@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("gestores")
+@RequestMapping("administrador")
 @Log4j2
 @RequiredArgsConstructor
 public class AdministradorController {

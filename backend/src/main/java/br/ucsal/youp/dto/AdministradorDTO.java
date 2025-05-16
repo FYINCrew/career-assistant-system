@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
 
 @Builder
-public record AdministradorDTO(Long id, @NotEmpty String nome, @NotEmpty String email, @NotEmpty String senha) {
+public record AdministradorDTO(Long id, String nome, String email, String senha) {
 
 
 }

@@ -21,6 +21,6 @@ public class Cargo {
 
     private String nome;
 
-    @OneToMany(mappedBy = "cargo", cascade = CascadeType.ALL)
+    @OneToMany
     private List<Habilidade> habilidades;
 }

@@ -32,8 +32,11 @@ public class Funcionario {
 
     private String experiencia;
 
-    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
+    @OneToMany
     private List<Habilidade> habilidades;
+
+    @OneToOne(mappedBy = "funcionario")
+    private TrilhaCarreira trilhaCarreira;
 
 
 
