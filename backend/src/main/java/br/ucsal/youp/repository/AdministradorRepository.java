@@ -1,12 +1,12 @@
 package br.ucsal.youp.repository;
 
-import br.ucsal.youp.model.Gestor;
+import br.ucsal.youp.model.Administrador;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface GestorRepository extends JpaRepository<Gestor, Long> {
-    List<Gestor> findByNome(String nome);
+public interface AdministradorRepository extends JpaRepository<Administrador, Long> {
+    List<Administrador> findByNome(String nome);
 }

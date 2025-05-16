@@ -42,7 +42,7 @@ public class TrilhaCarreiraService {
     @Transactional
     public TrilhaCarreira save(TrilhaCarreiraDTO trilhaCarreiraDTO){
         Funcionario funcionario = funcionarioService.
-                findByIdFuncionarioOrThrowBadRequestException(trilhaCarreiraDTO.funcionario_id());
+                findByIdFuncionarioOrThrowBadRequestException(trilhaCarreiraDTO.funcionario().getId());
         TrilhaCarreira trilhaCarreira = TrilhaCarreiraMapper.INSTANCE.toTrilhaCarreira(trilhaCarreiraDTO);
         trilhaCarreira.setFuncionario(funcionario);
 //        funcionario.setPlanoCarreira(planoCarreira);
@@ -53,7 +53,7 @@ public class TrilhaCarreiraService {
     @Transactional
     public void replace(TrilhaCarreiraDTO trilhaCarreiraDTO) {
         Funcionario funcionario = funcionarioService.
-                findByIdFuncionarioOrThrowBadRequestException(trilhaCarreiraDTO.funcionario_id());
+                findByIdFuncionarioOrThrowBadRequestException(trilhaCarreiraDTO.funcionario().getId());
         TrilhaCarreira trilhaCarreira = TrilhaCarreiraMapper.INSTANCE.toTrilhaCarreira(trilhaCarreiraDTO);
         trilhaCarreira.setFuncionario(funcionario);
         trilhaCarreiraRepository.save(trilhaCarreira);

@@ -1,11 +1,11 @@
 package br.ucsal.youp.service;
 
 
-import br.ucsal.youp.dto.GestorDTO;
+import br.ucsal.youp.dto.AdministradorDTO;
 import br.ucsal.youp.exception.BadRequestException;
-import br.ucsal.youp.mapper.GestorMapper;
-import br.ucsal.youp.model.Gestor;
-import br.ucsal.youp.repository.GestorRepository;
+import br.ucsal.youp.mapper.AdministradorMapper;
+import br.ucsal.youp.model.Administrador;
+import br.ucsal.youp.repository.AdministradorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,41 +19,41 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GestorService {
     @Autowired
-    private final GestorRepository gestorRepository;
+    private final AdministradorRepository administradorRepository;
 
-    public Page<Gestor> listAll(Pageable pageable){
-        return gestorRepository.findAll(pageable);
+    public Page<Administrador> listAll(Pageable pageable){
+        return administradorRepository.findAll(pageable);
     }
 
-    public List<Gestor> listAllNonPageable() {
-        return gestorRepository.findAll();
+    public List<Administrador> listAllNonPageable() {
+        return administradorRepository.findAll();
     }
 
-    public List<Gestor> findByNome(String nome){
-        return gestorRepository.findByNome(nome);
+    public List<Administrador> findByNome(String nome){
+        return administradorRepository.findByNome(nome);
     }
 
-    public Gestor findByIdOrThrowBadRequestException(long id){
+    public Administrador findByIdOrThrowBadRequestException(long id){
 
-        return gestorRepository.findById(id)
+        return administradorRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("Gestor não encontrado"));
     }
 
     @Transactional
-    public Gestor save(GestorDTO gestorDTO) {
-        return gestorRepository.save(GestorMapper.INSTANCE.toGestor(gestorDTO));
+    public Administrador save(AdministradorDTO administradorDTO) {
+        return administradorRepository.save(AdministradorMapper.INSTANCE.toAdministrador(administradorDTO));
     }
 
     @Transactional
     public void delete(long id) {
-        gestorRepository.delete(findByIdOrThrowBadRequestException(id));
+        administradorRepository.delete(findByIdOrThrowBadRequestException(id));
     }
 
     @Transactional
-    public void replace(GestorDTO gestorDTO) {
+    public void replace(AdministradorDTO administradorDTO) {
 //        Gestor savedGestor = findByIdOrThrowBadRequestException(gestorDTO.id());
-        Gestor gestor = GestorMapper.INSTANCE.toGestor(gestorDTO);
-        gestorRepository.save(gestor);
+        Administrador administrador = AdministradorMapper.INSTANCE.toAdministrador(administradorDTO);
+        administradorRepository.save(administrador);
 
     }
 

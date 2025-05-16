@@ -26,6 +26,6 @@ public class TrilhaCarreira {
     private Cargo cargo;
 
     private String nome;
-    private boolean status;
+    private Double score;
 
 }

@@ -5,5 +5,5 @@ import jakarta.validation.constraints.NotEmpty;
 
 import java.util.List;
 
-public record CargoDTO(@NotEmpty String nome, List<Habilidade> habilidades) {
+public record CargoDTO(Long id, String nome, List<Habilidade> habilidades) {
 }

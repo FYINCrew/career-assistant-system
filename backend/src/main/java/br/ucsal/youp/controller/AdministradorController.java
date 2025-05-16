@@ -1,7 +1,7 @@
 package br.ucsal.youp.controller;
 
-import br.ucsal.youp.dto.GestorDTO;
-import br.ucsal.youp.model.Gestor;
+import br.ucsal.youp.dto.AdministradorDTO;
+import br.ucsal.youp.model.Administrador;
 import br.ucsal.youp.model.TrilhaCarreira;
 import br.ucsal.youp.service.FuncionarioService;
 import br.ucsal.youp.service.GestorService;
@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping("gestores")
 @Log4j2
 @RequiredArgsConstructor
-public class GestorController {
+public class AdministradorController {
 
     @Autowired
     private final GestorService gestorService;
@@ -35,22 +35,22 @@ public class GestorController {
 
 
     @GetMapping
-    public ResponseEntity<Page<Gestor>> list(Pageable pageable){
+    public ResponseEntity<Page<Administrador>> list(Pageable pageable){
         return ResponseEntity.ok(gestorService.listAll(pageable));
     }
 
     @GetMapping(path = "/all")
-    public ResponseEntity<List<Gestor>> listAll(){
+    public ResponseEntity<List<Administrador>> listAll(){
         return ResponseEntity.ok(gestorService.listAllNonPageable());
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Gestor> findById(@PathVariable long id){
+    public ResponseEntity<Administrador> findById(@PathVariable long id){
         return ResponseEntity.ok(gestorService.findByIdOrThrowBadRequestException(id));
     }
 
     @GetMapping(path = "/find")
-    public ResponseEntity<List<Gestor>> findByNome(@RequestParam String nome){
+    public ResponseEntity<List<Administrador>> findByNome(@RequestParam String nome){
         return ResponseEntity.ok(gestorService.findByNome(nome));
     }
 
@@ -60,8 +60,8 @@ public class GestorController {
     }
 
     @PostMapping
-    public ResponseEntity<Gestor> save(@RequestBody @Valid GestorDTO gestorDTO) {
-        return new ResponseEntity<>(gestorService.save(gestorDTO), HttpStatus.CREATED);
+    public ResponseEntity<Administrador> save(@RequestBody @Valid AdministradorDTO administradorDTO) {
+        return new ResponseEntity<>(gestorService.save(administradorDTO), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")
@@ -71,8 +71,8 @@ public class GestorController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> replace(@RequestBody GestorDTO gestorDTO){
-        gestorService.replace(gestorDTO);
+    public ResponseEntity<Void> replace(@RequestBody AdministradorDTO administradorDTO){
+        gestorService.replace(administradorDTO);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

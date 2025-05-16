@@ -24,6 +24,10 @@ public class Funcionario {
 
     private String email;
 
+    @ManyToOne
+    @JoinColumn(name = "cargo_atual_id")
+    private Cargo cargoAtual;
+
     private String senha;
 
     private String experiencia;
