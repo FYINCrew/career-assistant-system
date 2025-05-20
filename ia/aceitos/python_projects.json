@@ -1,0 +1,242 @@
+[
+  {
+    "tecnologia": "python",
+    "texto": "Utilizei Pandas para ler um arquivo CSV e calcular a média de uma coluna.",
+    "score": 40
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei Pandas para limpar um conjunto de dados, tratando valores ausentes e outliers, e depois realizei operações de groupby para agregar os dados.",
+    "score": 60
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi um pipeline de dados usando Pandas que processa grandes conjuntos de dados, aplica transformações personalizadas e integra com outras bibliotecas para visualização e modelagem.",
+    "score": 80
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Criei um script simples em Python para automatizar o envio de emails usando a biblioteca smtplib.",
+    "score": 45
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi uma API RESTful com Flask que gerencia um banco de dados SQLite, incluindo endpoints para CRUD (criar, ler, atualizar, deletar).",
+    "score": 70
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Implementei um modelo de regressão linear com Scikit-learn para prever preços de imóveis com base em características como tamanho e localização.",
+    "score": 65
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei Selenium para criar um script que automatiza o preenchimento de um formulário em um site web.",
+    "score": 55
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi um bot para Telegram que responde a perguntas com base em um FAQ pré-definido, utilizando técnicas básicas de processamento de linguagem natural.",
+    "score": 75
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Criei um jogo da velha (tic-tac-toe) em Python, utilizando lógica de programação e estruturas de controle.",
+    "score": 50
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei Matplotlib para gerar gráficos interativos de séries temporais, permitindo a visualização de tendências ao longo do tempo.",
+    "score": 65
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi um sistema de gerenciamento de tarefas com Django, incluindo autenticação de usuários e funcionalidades de CRUD.",
+    "score": 80
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Implementei um classificador de texto com SpaCy para categorizar reviews de produtos em positivo ou negativo.",
+    "score": 75
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Criei um script em Python para automatizar o backup de arquivos, utilizando a biblioteca shutil e agendamento via cron.",
+    "score": 60
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei SQLAlchemy para interagir com um banco de dados PostgreSQL, implementando consultas complexas e relacionamentos entre tabelas.",
+    "score": 70
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi um modelo de rede neural profunda com TensorFlow para classificação de imagens, utilizando técnicas de aumento de dados.",
+    "score": 85
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Criei um gerador de senhas em Python que atende a critérios de complexidade, incluindo maiúsculas, minúsculas, números e caracteres especiais.",
+    "score": 50
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Implementei um sistema de autenticação JWT em uma API Flask, garantindo segurança nas requisições.",
+    "score": 80
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei PyAutoGUI para automatizar tarefas repetitivas na interface do usuário, como clicar e digitar.",
+    "score": 60
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi uma aplicação web com Django que permite o upload e download de arquivos, com validação de tipos e tamanhos.",
+    "score": 75
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Criei um analisador de sentimentos em tweets usando a biblioteca Tweepy e NLTK, para medir a opinião pública sobre um tópico.",
+    "score": 75
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Implementei um sistema de recomendação de filmes baseado em filtros colaborativos, utilizando a biblioteca Surprise.",
+    "score": 80
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei Pygame para desenvolver um jogo simples de pong, com movimentação básica e colisões.",
+    "score": 55
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi uma ferramenta de análise financeira com yfinance, calculando métricas como retorno e volatilidade de ações.",
+    "score": 65
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Criei um scraper web com Scrapy para extrair dados de múltiplas páginas, lidando com paginas dinâmicas e armazenando os dados em um banco de dados.",
+    "score": 75
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Implementei um sistema de monitoramento de logs com Python, utilizando regular expressions para identificar padrões específicos.",
+    "score": 65
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei Celery para criar tarefas assíncronas que processam filas de mensagens, melhorando a escalabilidade da aplicação.",
+    "score": 80
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi um cliente MQTT em Python que se conecta a brokers e subscreve tópicos para aplicações IoT.",
+    "score": 65
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Implementei testes unitários e de integração usando Pytest e Mock, garantindo a qualidade do código.",
+    "score": 70
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei OpenCV para processar imagens, detectar faces e aplicar filtros em tempo real.",
+    "score": 70
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi um framework de testes automatizados para QA, utilizando Selenium e Behave para BDD.",
+    "score": 75
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Criei um dashboard interativo com Seaborn e Plotly, permitindo aos usuários filtrar e explorar os dados de maneira dinâmica.",
+    "score": 80
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Implementei uma estratégia de negociação baseada em indicadores técnicos usando Zipline, backtestando em dados históricos.",
+    "score": 85
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei Dask para paralelizar operações em arrays e dataframes, permitindo o processamento de dados que não cabem na memória RAM.",
+    "score": 80
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi um sistema de gerenciamento de estoque com Django, incluindo funcionalidades de entrada, saída e relatórios.",
+    "score": 75
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Criei um bot para Twitter que automaticamente posta atualizações diárias baseadas em feeds de notícias, usando a API do Twitter.",
+    "score": 75
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Implementei criptografia simétrica e assinaturas digitais usando a biblioteca cryptography para proteger dados sensíveis.",
+    "score": 80
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei Astropy para analisar dados astronômicos, incluindo manipulação de coordenadas e cálculo de distâncias cósmicas.",
+    "score": 80
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi um sistema de autenticação multifator com Python, utilizando tokens temporários e verificação por SMS.",
+    "score": 85
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Criei uma ferramenta de análise de redes sociais com NetworkX, mapeando relações entre usuários em uma rede.",
+    "score": 75
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei Pydantic para validação de dados e criação de modelos de dados, melhorando a robustez da API.",
+    "score": 70
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi um sistema de processamento de imagens em lote com Pillow, aplicando filtros e redimensionando imagens automaticamente.",
+    "score": 70
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Implementei um sistema de cache com Redis em uma aplicação Flask, melhorando o desempenho ao reduzir consultas ao banco de dados.",
+    "score": 80
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Criei um analisador de logs distribuídos com Python, utilizando Logstash e Elasticsearch para armazenamento e consulta.",
+    "score": 85
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi uma aplicação de reconhecimento facial com OpenCV e face_recognition, capaz de identificar usuários em tempo real.",
+    "score": 85
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Usei PySpark para processar grandes conjuntos de dados distribuídos, realizando operações de map-reduce personalizadas.",
+    "score": 85
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Implementei um sistema de gerenciamento de projetos com Django, incluindo módulos para tarefas, prazos e alocação de recursos.",
+    "score": 80
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Criei uma ferramenta de análise de sentimento em texto com BERT, utilizando Hugging Face Transformers.",
+    "score": 90
+  },
+  {
+    "tecnologia": "python",
+    "texto": "Desenvolvi uma arquitetura de microserviços usando Flask, cada serviço rodando em contêineres Docker e se comunicando via API.",
+    "score": 90
+  }
+]
