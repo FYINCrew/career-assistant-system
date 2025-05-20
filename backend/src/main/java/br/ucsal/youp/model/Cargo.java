@@ -6,7 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -21,6 +23,6 @@ public class Cargo {
 
     private String nome;
 
-    @OneToMany
-    private List<Habilidade> habilidades;
+    @ManyToMany
+    private Set<Habilidade> habilidades = new HashSet<>();
 }

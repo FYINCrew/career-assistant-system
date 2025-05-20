@@ -25,6 +25,7 @@ import java.util.List;
 public class CargoController {
 
     private final CargoService cargoService;
+    private final HabilidadeService habilidadeService;
 
     @GetMapping
     public ResponseEntity<Page<Cargo>> list(Pageable pageable){
@@ -48,6 +49,9 @@ public class CargoController {
 
     @PostMapping
     public ResponseEntity<Cargo> save(@RequestBody @Valid CargoDTO cargoDTO) {
+//        if(habilidadeService.findByIdOrThrowBadRequestException(cargoDTO.habilidades()){
+//
+//        }
         return new ResponseEntity<>(cargoService.save(cargoDTO), HttpStatus.CREATED);
     }
 
@@ -62,4 +66,6 @@ public class CargoController {
         cargoService.replace(cargoDTO);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+
 }

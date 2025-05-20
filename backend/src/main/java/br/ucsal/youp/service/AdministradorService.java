@@ -17,7 +17,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class GestorService {
+public class AdministradorService {
     @Autowired
     private final AdministradorRepository administradorRepository;
 

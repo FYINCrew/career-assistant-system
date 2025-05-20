@@ -2,10 +2,8 @@ package br.ucsal.youp.controller;
 
 import br.ucsal.youp.dto.AdministradorDTO;
 import br.ucsal.youp.model.Administrador;
-import br.ucsal.youp.model.TrilhaCarreira;
 import br.ucsal.youp.service.FuncionarioService;
-import br.ucsal.youp.service.GestorService;
-import br.ucsal.youp.service.TrilhaCarreiraService;
+import br.ucsal.youp.service.AdministradorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -26,10 +24,8 @@ public class AdministradorController {
 
 
     @Autowired
-    private final GestorService gestorService;
+    private final AdministradorService administradorService;
 
-    @Autowired
-    private final TrilhaCarreiraService trilhaCarreiraService;
 
     @Autowired
     private final FuncionarioService funcionarioService;
@@ -37,43 +33,39 @@ public class AdministradorController {
 
     @GetMapping
     public ResponseEntity<Page<Administrador>> list(Pageable pageable){
-        return ResponseEntity.ok(gestorService.listAll(pageable));
+        return ResponseEntity.ok(administradorService.listAll(pageable));
     }
 
     @GetMapping(path = "/all")
     public ResponseEntity<List<Administrador>> listAll(){
-        return ResponseEntity.ok(gestorService.listAllNonPageable());
+        return ResponseEntity.ok(administradorService.listAllNonPageable());
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Administrador> findById(@PathVariable long id){
-        return ResponseEntity.ok(gestorService.findByIdOrThrowBadRequestException(id));
+        return ResponseEntity.ok(administradorService.findByIdOrThrowBadRequestException(id));
     }
 
     @GetMapping(path = "/find")
     public ResponseEntity<List<Administrador>> findByNome(@RequestParam String nome){
-        return ResponseEntity.ok(gestorService.findByNome(nome));
+        return ResponseEntity.ok(administradorService.findByNome(nome));
     }
 
-    @GetMapping("/findPlanoCarreiraById/{id}")
-    public ResponseEntity<TrilhaCarreira> findPlanoCarreiraById(@PathVariable long id){
-        return ResponseEntity.ok(trilhaCarreiraService.findByIdPlanoCarreiraOrThrowBadRequestException(id));
-    }
 
     @PostMapping
     public ResponseEntity<Administrador> save(@RequestBody @Valid AdministradorDTO administradorDTO) {
-        return new ResponseEntity<>(gestorService.save(administradorDTO), HttpStatus.CREATED);
+        return new ResponseEntity<>(administradorService.save(administradorDTO), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable long id){
-        gestorService.delete(id);
+        administradorService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @PutMapping
     public ResponseEntity<Void> replace(@RequestBody AdministradorDTO administradorDTO){
-        gestorService.replace(administradorDTO);
+        administradorService.replace(administradorDTO);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

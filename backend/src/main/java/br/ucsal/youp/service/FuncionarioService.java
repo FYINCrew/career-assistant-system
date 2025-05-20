@@ -5,7 +5,10 @@ import br.ucsal.youp.dto.FuncionarioDTO;
 import br.ucsal.youp.exception.BadRequestException;
 import br.ucsal.youp.mapper.FuncionarioMapper;
 import br.ucsal.youp.model.Funcionario;
+import br.ucsal.youp.model.Habilidade;
+import br.ucsal.youp.repository.CargoRepository;
 import br.ucsal.youp.repository.FuncionarioRepository;
+import br.ucsal.youp.repository.HabilidadeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +16,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -20,7 +25,9 @@ public class FuncionarioService {
 
     private final FuncionarioRepository funcionarioRepository;
 
+    private final HabilidadeRepository habilidadeRepository;
 
+    private final CargoRepository cargoRepository;
 
     public Page<Funcionario> listAll(Pageable pageable){
         return funcionarioRepository.findAll(pageable);
@@ -45,6 +52,13 @@ public class FuncionarioService {
     @Transactional
     public Funcionario save(FuncionarioDTO funcionarioDTO) {
         Funcionario funcionario = FuncionarioMapper.INSTANCE.toFuncionario(funcionarioDTO);
+        funcionario.setCargoAtual(cargoRepository.findById(funcionarioDTO.cargoAtualId()).
+                orElseThrow(() -> new RuntimeException("Cargo não encontrado")));
+        Set<Habilidade> habilidades = funcionarioDTO.habilidadesId().stream()
+                .map(id -> habilidadeRepository.findById(id)
+                        .orElseThrow(() -> new RuntimeException("Habilidade não encontrada: " + id)))
+                .collect(Collectors.toSet());
+        funcionario.setHabilidades(habilidades);
         return funcionarioRepository.save(funcionario);
     }
 

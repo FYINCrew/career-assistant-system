@@ -7,7 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -24,19 +26,21 @@ public class Funcionario {
 
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "cargo_atual_id")
-    private Cargo cargoAtual;
-
     private String senha;
 
     private String experiencia;
 
-    @OneToMany
-    private List<Habilidade> habilidades;
+    private double score;
 
-    @OneToOne(mappedBy = "funcionario")
-    private TrilhaCarreira trilhaCarreira;
+    @ManyToMany
+    private Set<Habilidade> habilidades = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "cargo_atual_id")
+    private Cargo cargoAtual;
+
+//    @OneToOne(mappedBy = "funcionario")
+//    private TrilhaCarreira trilhaCarreira;
 
 
 
