@@ -1,0 +1,252 @@
+[
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi uma API RESTful utilizando Java e Spring Boot para um sistema corporativo de gestão de pedidos. A API foi projetada para ser escalável, suportando alto volume de requisições, com padrões de design como DDD (Domain-Driven Design). Utilizei Spring Data JPA para interação com banco de dados relacional e implementei autenticação OAuth2 com Spring Security, garantindo segurança baseada em papéis.",
+    "score": 76
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Criei um microsserviço básico em Java com Spring Cloud, configurando um serviço Eureka para registro de instâncias. O microsserviço expunha um endpoint REST simples que retornava uma mensagem estática, demonstrando conceitos iniciais de arquitetura distribuída.",
+    "score": 49
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Utilizei Hibernate em um projeto Java para mapear entidades simples a tabelas de um banco de dados relacional, implementando operações básicas de CRUD, como inserção e consulta de registros.",
+    "score": 44
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi um sistema web corporativo com Java e JSF, implementando validação de formulários complexos, gerenciamento de estado e integração com serviços backend via AJAX. O sistema era responsivo, adaptando-se a diferentes dispositivos, e utilizei CDI para injeção de dependências.",
+    "score": 83
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi aplicações Java integradas com PostgreSQL e MySQL, utilizando JDBC para conexões diretas e Spring Data JPA para abstração de dados. Implementei migração de dados entre bancos e gerenciamento de transações distribuídas para garantir consistência.",
+    "score": 75
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Arquiteteci um sistema de processamento assíncrono com Java e Apache Kafka, configurando produtores e consumidores para tópicos partitionados. Utilizei Spring Kafka para integração e implementei retry e dead-letter queues, garantindo alta throughput e confiabilidade.",
+    "score": 87
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Participei da manutenção de um sistema legado em Java com Struts, corrigindo bugs, atualizando dependências e implementando pequenas funcionalidades, seguindo as diretrizes de código existentes.",
+    "score": 52
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Criei uma suíte de testes unitários e de integração para uma aplicação Java com JUnit e Mockito, utilizando padrões como Given-When-Then e AssertJ para asserções expressivas. Integrei os testes ao pipeline de CI/CD para validação contínua.",
+    "score": 82
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi um aplicativo desktop de controle de estoque com JavaFX, incluindo cadastro de produtos, entrada/saída de mercadorias e relatórios. Utilizei arquitetura MVC, FXML para interface gráfica e integração com impressoras fiscais.",
+    "score": 81
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Utilizei Maven em projetos Java corporativos para gerenciar dependências, configurar builds multimódulo e integrar com CI/CD. Criei arquétipos personalizados e plugins para tarefas como análise estática de código e geração de documentação.",
+    "score": 81
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Colaborei no desenvolvimento de um sistema distribuído com Java RMI, permitindo invocação remota de métodos entre servidores. Implementei fail-over e load balancing para garantir disponibilidade, além de segurança na comunicação remota.",
+    "score": 71
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Implementei autenticação e autorização em uma aplicação Java com Spring Security, configurando usuários, papéis e proteção de endpoints com anotações como @PreAuthorize, utilizando form login e HTTP Basic.",
+    "score": 62
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi parsers em Java para processar arquivos XML e JSON complexos, utilizando JAXB e Jackson. Implementei validação de schemas, mapeamentos personalizados e tratamento de exceções para garantir integridade dos dados.",
+    "score": 86
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Criei scripts Java para rotinas ETL, extraindo dados de um banco relacional via JDBC, aplicando filtros simples e carregando-os em outro sistema via API REST, utilizando Apache Commons CSV para manipulação de arquivos.",
+    "score": 51
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi um chatbot simples em Java para Telegram, utilizando a API do Telegram Bot. O chatbot respondia a mensagens pré-definidas com um loop básico de verificação de novas mensagens.",
+    "score": 45
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Participei do desenvolvimento de uma aplicação Java com arquitetura hexagonal, isolando o core domain de infraestruturas externas. Implementei ports e adapters para bancos de dados e serviços, garantindo testabilidade e flexibilidade.",
+    "score": 82
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi aplicações multi-threaded em Java, utilizando executors e thread pools para processamento paralelo. Apliquei sincronização com locks e semáforos para evitar condições de corrida e garantir integridade dos dados.",
+    "score": 58
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Criei uma API GraphQL em Java com graphql-java, implementando resolvers personalizados e DataLoader para otimizar consultas ao banco de dados, permitindo consultas flexíveis e eficientes.",
+    "score": 58
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Configurei pipelines de CI/CD com Jenkins para projetos Java, automatizando build, testes e deploy. Integrei SonarQube para análise de código e Maven para gerenciamento de dependências, criando jobs personalizados.",
+    "score": 86
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Utilizei a biblioteca Vavr em projetos Java para programação funcional, trabalhando com funções puras e estruturas de dados imutáveis, melhorando legibilidade e manutenibilidade do código.",
+    "score": 56
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Utilizei Apache POI em Java para manipular planilhas Excel, criando utilitários para importar/exportar dados em formato XLSX, facilitando integração com ferramentas de análise.",
+    "score": 78
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Implementei logging e monitoramento em sistemas Java com Logback e Prometheus, configurando dashboards no Grafana para visualizar métricas de desempenho e identificar gargalos.",
+    "score": 69
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi aplicações cloud-native com Java e Quarkus, aproveitando startup rápido e baixo footprint. Integrei com Kubernetes para deploy escalável em ambientes de nuvem.",
+    "score": 70
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Implementei algoritmos de recomendação em Java para e-commerce, utilizando filtragem colaborativa e baseada em conteúdo, integrando resultados à interface para melhorar a experiência do usuário.",
+    "score": 73
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi aplicativos embarcados com Java ME para dispositivos móveis antigos, criando interfaces gráficas leves e gerenciando eventos do usuário em ambientes com recursos limitados.",
+    "score": 52
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Utilizei Java com Hyperledger Fabric em projetos de blockchain, desenvolvendo smart contracts e integrando com aplicações corporativas para processos descentralizados e seguros.",
+    "score": 78
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Implementei cache distribuído em aplicações Java com Redis, reduzindo consultas ao banco de dados. Configurei expirações e estratégias de evicção para otimizar memória.",
+    "score": 82
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi aplicações Java de tempo real com WebSocket, permitindo comunicação bidirecional para funcionalidades como chat ao vivo e atualizações dinâmicas.",
+    "score": 53
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Criei aplicações Java com suporte a internacionalização, utilizando ResourceBundle para gerenciar textos em diferentes idiomas e formatos regionais, garantindo acessibilidade global.",
+    "score": 63
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi módulos para sistemas Java com OSGi, permitindo carregamento dinâmico de componentes e atualizações sem reiniciar a aplicação, melhorando modularidade.",
+    "score": 85
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Utilizei Java e Apache Camel para integrar sistemas legados com aplicações modernas, configurando rotas para processar mensagens entre JMS, FTP e REST, facilitando migrações graduais.",
+    "score": 66
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Implementei modelos de machine learning em Java com Weka e Deeplearning4j, treinando algoritmos como regressão linear e redes neurais, integrando-os em aplicações para previsões em tempo real.",
+    "score": 56
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Criei simuladores de redes em Java para projetos acadêmicos, modelando pacotes, topologias e protocolos, utilizando JUNG para visualização de redes.",
+    "score": 84
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Participei de sistemas bancários em Java, utilizando Bouncy Castle para criptografia simétrica e assinaturas digitais, garantindo proteção de dados sensíveis.",
+    "score": 48
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi um jogo 2D simples com Java e LibGDX, implementando física básica e animações, utilizando Scene2D para gerenciar interface gráfica e loop de jogo.",
+    "score": 49
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Utilizei Vaadin para criar interfaces ricas em aplicações Java, desenvolvendo componentes personalizados e integrando com serviços backend para uma experiência fluida.",
+    "score": 89
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Implementei sistemas Java com suporte a plugins via SPI, permitindo extensões de terceiros sem modificar o código-fonte, aumentando flexibilidade e reutilização.",
+    "score": 87
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Utilizei Java e OpenCV para visão computacional, processando imagens para detecção de objetos e reconhecimento facial, integrando em aplicações para análise em tempo real.",
+    "score": 54
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi backends Java para aplicações Android com Firebase, configurando autenticação, armazenamento de dados e notificações push para integração seamless.",
+    "score": 67
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Implementei schedulers com Quartz em sistemas Java, agendando tarefas como geração de relatórios e processamento batch, configurando jobs e triggers personalizados.",
+    "score": 41
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Participei da migração de aplicações Java para AWS, utilizando EC2, S3 e RDS, reestruturando código e otimizando para ambientes cloud.",
+    "score": 54
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Utilizei Apache Lucene em Java para implementar buscas textuais, indexando documentos e permitindo pesquisas com filtros e sugestões, melhorando a experiência do usuário.",
+    "score": 45
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Criei testes de carga com JMeter para aplicações Java, simulando múltiplos usuários para avaliar desempenho e otimizar a aplicação antes do lançamento.",
+    "score": 70
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi aplicações modernas com Java, Spring Boot e GraphQL, permitindo consultas flexíveis de dados, reduzindo sobrecarga na rede e aumentando eficiência.",
+    "score": 85
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi sistemas Java integrados a APIs SOAP com Apache CXF, garantindo compatibilidade com sistemas legados através de serviços web robustos.",
+    "score": 57
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Utilizei Apache Spark com Java para processar grandes datasets, realizando filtragens, agregações e joins em ambientes distribuídos para análises escaláveis.",
+    "score": 54
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Criei sistemas de recomendação com algoritmos KNN em Java, analisando padrões de comportamento para sugerir produtos personalizados, aumentando engajamento.",
+    "score": 59
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Implementei clean architecture em projetos Java, separando business logic de infraestruturas externas, melhorando testabilidade e escalabilidade.",
+    "score": 72
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Utilizei Apache Commons em Java para automação de tarefas administrativas, como manipulação de arquivos e validação de dados, simplificando utilitários internos.",
+    "score": 46
+  },
+  {
+    "tecnologia": "java",
+    "texto": "Desenvolvi integrações REST com Java para ERPs como SAP e Totvs, utilizando RestTemplate para requisições HTTP, garantindo comunicação eficiente entre sistemas.",
+    "score": 62
+  }
+]

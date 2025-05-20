@@ -1,0 +1,257 @@
+[
+  {
+    "tecnologia": "sql",
+    "texto": "Desenvolvi queries otimizadas em SQL para extração de dados analíticos em grandes volumes, utilizando joins complexos, CTEs e índices em PostgreSQL.",
+    "score": 88
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Criei relatórios operacionais utilizando comandos básicos em SQL para consultar tabelas e aplicar filtros simples.",
+    "score": 50
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Implementei procedures e triggers em SQL Server para automação de regras de negócio no banco de dados.",
+    "score": 80
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Participei da modelagem relacional e criação de schemas otimizados para um novo módulo do sistema ERP.",
+    "score": 76
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Utilizei SQL para construção de painéis de BI, com foco em KPIs operacionais e indicadores de performance.",
+    "score": 70
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Implementei rotinas de ETL utilizando SQL para transformar e carregar dados em sistemas de data warehouse.",
+    "score": 75
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Escrevi funções armazenadas (stored procedures) e triggers para automação de processos em banco de dados.",
+    "score": 80
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Projetei esquemas de banco de dados normalizados e otimizados para alto desempenho em consultas SQL.",
+    "score": 90
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Elaborei consultas complexas envolvendo subqueries aninhadas e funções agregadas para relatórios analíticos.",
+    "score": 78
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Utilizei índices e partições para otimizar o desempenho de consultas SQL em bancos com milhões de registros.",
+    "score": 85
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Integrei SQL com ferramentas de visualização de dados para gerar dashboards dinâmicos.",
+    "score": 70
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Realizei migração de dados entre diferentes sistemas utilizando SQL para mapear e transformar estruturas.",
+    "score": 65
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Conduzi auditorias e análises de integridade de dados utilizando consultas SQL específicas.",
+    "score": 72
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Gerenciei bancos de dados relacionais configurando permissões e criando usuários via SQL.",
+    "score": 68
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Criei visões materializadas para melhorar o desempenho de consultas frequentes em sistemas de relatórios.",
+    "score": 82
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Escrevi scripts SQL para monitorar e registrar a performance de operações em tempo real.",
+    "score": 77
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Aprimorei rotinas SQL existentes para reduzir o tempo de execução de queries complexas.",
+    "score": 84
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Colaborei no desenvolvimento de sistemas de recomendação, extraindo dados comportamentais com SQL.",
+    "score": 74
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Implementei segurança em nível de linha (row-level security) utilizando SQL em bancos PostgreSQL.",
+    "score": 86
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Executei backups e restaurações de bancos de dados utilizando comandos SQL específicos.",
+    "score": 60
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Desenvolvi relatórios gerenciais em SQL com indicadores de desempenho (KPIs) consolidados.",
+    "score": 76
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Otimizei operações de junções cruzadas (cross joins) para análise combinatória de dados em SQL.",
+    "score": 87
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Criei pipelines de dados escaláveis utilizando SQL para processamento incremental de informações.",
+    "score": 79
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Usei funções de janela (window functions) em SQL para calcular métricas avançadas.",
+    "score": 81
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Desenvolvi consultas SQL parametrizadas para integração com aplicações web.",
+    "score": 71
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Projetei modelos star schema para data warehouses, otimizando consultas SQL analíticas.",
+    "score": 88
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Detectei e corrigi problemas de desempenho em bancos de dados utilizando análise de planos de execução SQL.",
+    "score": 89
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Automatizei tarefas de manutenção em bancos de dados usando scripts SQL agendados.",
+    "score": 73
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Auxiliei na modelagem dimensional de dados e criação de cubos OLAP utilizando SQL.",
+    "score": 83
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Desenvolvi funções definidas pelo usuário (UDFs) em SQL para cálculos personalizados.",
+    "score": 80
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Consolidei dados de várias fontes utilizando SQL para geração de relatórios integrados.",
+    "score": 75
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Implementei práticas de controle de versão para scripts SQL em projetos colaborativos.",
+    "score": 68
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Projetei tabelas particionadas para distribuir dados massivos e melhorar consultas em SQL.",
+    "score": 85
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Criei sistemas de controle de inventário automatizados utilizando SQL.",
+    "score": 67
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Escrevi queries SQL para alimentar APIs REST com dados dinâmicos.",
+    "score": 72
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Utilizei funções analíticas para calcular tendências e padrões em séries temporais usando SQL.",
+    "score": 84
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Implantei replicação de dados em bancos SQL para alta disponibilidade.",
+    "score": 78
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Projetei triggers SQL para automação de eventos transacionais em bancos de dados.",
+    "score": 82
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Desenvolvi scripts de integração de dados entre bancos SQL e sistemas NoSQL.",
+    "score": 75
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Realizei manutenção preventiva em índices e estatísticas para bancos SQL de alto tráfego.",
+    "score": 88
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Criei tabelas temporárias em SQL para processamento intermediário de dados.",
+    "score": 65
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Implementei métricas de qualidade de dados utilizando consultas SQL avançadas.",
+    "score": 83
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Otimizei tabelas de fatos e dimensões para relatórios SQL ágeis.",
+    "score": 79
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Integrei bancos SQL com serviços de mensagens para streaming de dados em tempo real.",
+    "score": 81
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Projetei soluções de análise preditiva utilizando SQL integrado com ferramentas estatísticas.",
+    "score": 86
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Implementei pipelines de dados utilizando SQL em conjunto com ferramentas de orquestração.",
+    "score": 77
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Desenvolvi consultas para análise de clusters utilizando SQL.",
+    "score": 80
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Realizei auditorias em bancos SQL para garantir conformidade com padrões regulatórios.",
+    "score": 76
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Desenvolvi estratégias de sharding para distribuir dados massivos em ambientes SQL.",
+    "score": 87
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Implementei consultas SQL geoespaciais para sistemas de localização.",
+    "score": 78
+  },
+  {
+    "tecnologia": "sql",
+    "texto": "Aprimorei segurança de dados em bancos SQL implementando criptografia em nível de tabela.",
+    "score": 82
+  }
+]
