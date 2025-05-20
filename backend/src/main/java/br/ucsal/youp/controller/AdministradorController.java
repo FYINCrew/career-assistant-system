@@ -22,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdministradorController {
 
+    //
 
     @Autowired
     private final AdministradorService administradorService;
