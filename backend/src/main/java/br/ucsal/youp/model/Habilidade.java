@@ -23,8 +23,4 @@ public class Habilidade {
     private String nome;
     private String tipo;
     private String descricao;
-
-
-
-
 }

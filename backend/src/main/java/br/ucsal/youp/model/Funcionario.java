@@ -32,9 +32,6 @@ public class Funcionario {
 
     private double score;
 
-    @ManyToMany
-    private Set<Habilidade> habilidades = new HashSet<>();
-
     @ManyToOne
     @JoinColumn(name = "cargo_atual_id")
     private Cargo cargoAtual;

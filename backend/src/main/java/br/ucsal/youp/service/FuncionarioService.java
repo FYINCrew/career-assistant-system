@@ -54,11 +54,6 @@ public class FuncionarioService {
         Funcionario funcionario = FuncionarioMapper.INSTANCE.toFuncionario(funcionarioDTO);
         funcionario.setCargoAtual(cargoRepository.findById(funcionarioDTO.cargoAtualId()).
                 orElseThrow(() -> new RuntimeException("Cargo não encontrado")));
-        Set<Habilidade> habilidades = funcionarioDTO.habilidadesId().stream()
-                .map(id -> habilidadeRepository.findById(id)
-                        .orElseThrow(() -> new RuntimeException("Habilidade não encontrada: " + id)))
-                .collect(Collectors.toSet());
-        funcionario.setHabilidades(habilidades);
         return funcionarioRepository.save(funcionario);
     }
 
