@@ -12,5 +12,6 @@ import java.util.Set;
 
 @Builder
 public record FuncionarioDTO(Long id,  @NotEmpty String nome, @NotEmpty String email, @NotEmpty String senha,
-                             @NotEmpty String experiencia, Long cargoAtualId, @NotEmpty Double score) {
+                             @NotEmpty String experiencia, Long cargoAtualId,
+                             Long cargoFuturoId, Double score) {
 }

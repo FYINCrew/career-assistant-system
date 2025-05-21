@@ -54,6 +54,8 @@ public class FuncionarioService {
         Funcionario funcionario = FuncionarioMapper.INSTANCE.toFuncionario(funcionarioDTO);
         funcionario.setCargoAtual(cargoRepository.findById(funcionarioDTO.cargoAtualId()).
                 orElseThrow(() -> new RuntimeException("Cargo não encontrado")));
+        funcionario.setCargoFuturo(cargoRepository.findById(funcionarioDTO.cargoFuturoId()).
+                orElseThrow(() -> new RuntimeException("Cargo não encontrado")));
         return funcionarioRepository.save(funcionario);
     }
 

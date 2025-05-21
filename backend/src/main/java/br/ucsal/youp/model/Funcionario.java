@@ -36,6 +36,10 @@ public class Funcionario {
     @JoinColumn(name = "cargo_atual_id")
     private Cargo cargoAtual;
 
+    @ManyToOne
+    @JoinColumn(name = "cargo_futuro_id")
+    private Cargo cargoFuturo;
+
 //    @OneToOne(mappedBy = "funcionario")
 //    private TrilhaCarreira trilhaCarreira;
 
