@@ -55,11 +55,12 @@ public class FuncionarioService {
     }
 
     @Transactional
-    public void updateScore(AddScore scoreDTO) {
+    public Funcionario updateScore(AddScore scoreDTO) {
         executarScript();
         Funcionario funcionario = findByIdFuncionarioOrThrowBadRequestException(scoreDTO.id());
         funcionario.setScore(scoreDTO.score());
         funcionarioRepository.save(funcionario);
+        return funcionario;
     }
 
     public void executarScript(){

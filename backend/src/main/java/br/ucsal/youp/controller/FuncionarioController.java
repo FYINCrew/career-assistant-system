@@ -74,9 +74,9 @@ public class FuncionarioController {
     }
 
     @PutMapping("/score")
-    public ResponseEntity<Void> setScore(@RequestBody AddScore scoreDTO){
-        funcionarioService.updateScore(scoreDTO);
-        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+    public ResponseEntity<Funcionario> setScore(@RequestBody AddScore scoreDTO){
+//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return ResponseEntity.ok(funcionarioService.updateScore(scoreDTO));
     }
 
 }
