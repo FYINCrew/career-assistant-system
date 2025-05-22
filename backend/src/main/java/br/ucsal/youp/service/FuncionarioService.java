@@ -64,8 +64,10 @@ public class FuncionarioService {
 
     public void executarScript(){
         try {
-            ProcessBuilder processBuilder = new ProcessBuilder("python3",
-                    "src/main/java/br/ucsal/youp/scripts/script.py");
+            ProcessBuilder processBuilder = new ProcessBuilder(
+                    "python3",
+                    "backend/src/main/java/br/ucsal/youp/scripts/script.py"
+            );
             processBuilder.inheritIO();
             Process process = processBuilder.start();
             int exitCode = process.waitFor();
