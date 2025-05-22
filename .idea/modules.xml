@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/career-assistant-system.iml" filepath="$PROJECT_DIR$/.idea/career-assistant-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/src/main/java/br/ucsal/youp/scripts/scripts.iml" filepath="$PROJECT_DIR$/backend/src/main/java/br/ucsal/youp/scripts/scripts.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/yo-up.iml" filepath="$PROJECT_DIR$/backend/yo-up.iml" />
     </modules>
   </component>
