@@ -69,9 +69,7 @@ public class FuncionarioService {
                     "backend/src/main/java/br/ucsal/youp/scripts/script.py"
             );
             processBuilder.inheritIO();
-            Process process = processBuilder.start();
-            int exitCode = process.waitFor();
-            System.out.println("Script finalizado com código: " + exitCode);
+            processBuilder.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
