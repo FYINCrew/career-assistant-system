@@ -2,6 +2,7 @@ package br.ucsal.youp.controller;
 
 import br.ucsal.youp.dto.AddScore;
 import br.ucsal.youp.dto.FuncionarioDTO;
+import br.ucsal.youp.dto.FuncionarioLoginDTO;
 import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.service.FuncionarioService;
 import jakarta.validation.Valid;
@@ -51,7 +52,7 @@ public class FuncionarioController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Funcionario> login(@RequestBody FuncionarioDTO loginRequest) {
+    public ResponseEntity<Funcionario> login(@RequestBody FuncionarioLoginDTO loginRequest) {
         Funcionario funcionario = funcionarioService.findByEmailAndSenha(loginRequest.email(), loginRequest.senha());
         if (funcionario != null) {
             return ResponseEntity.ok(funcionario);
