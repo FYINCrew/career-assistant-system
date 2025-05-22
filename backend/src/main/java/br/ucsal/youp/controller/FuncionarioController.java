@@ -1,5 +1,6 @@
 package br.ucsal.youp.controller;
 
+import br.ucsal.youp.dto.AddScore;
 import br.ucsal.youp.dto.FuncionarioDTO;
 import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.service.FuncionarioService;
@@ -69,6 +70,12 @@ public class FuncionarioController {
     public ResponseEntity<Void> replace(@RequestBody FuncionarioDTO funcionarioDTO){
         funcionarioService.replace(funcionarioDTO);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/score")
+    public ResponseEntity<Void> setScore(@RequestBody AddScore scoreDTO){
+        funcionarioService.updateScore(scoreDTO);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 
 }

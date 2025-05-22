@@ -51,13 +51,13 @@ public class FuncionarioService {
                 orElseThrow(() -> new RuntimeException("Cargo não encontrado")));
         funcionario.setCargoFuturo(cargoRepository.findById(funcionarioDTO.cargoFuturoId()).
                 orElseThrow(() -> new RuntimeException("Cargo não encontrado")));
-        executarScript();
         return funcionarioRepository.save(funcionario);
     }
 
     @Transactional
-    public void updateScore(AddScore scoreDTO, Long idFuncionario) {
-        Funcionario funcionario = findByIdFuncionarioOrThrowBadRequestException(idFuncionario);
+    public void updateScore(AddScore scoreDTO) {
+        executarScript();
+        Funcionario funcionario = findByIdFuncionarioOrThrowBadRequestException(scoreDTO.id());
         funcionario.setScore(scoreDTO.score());
         funcionarioRepository.save(funcionario);
     }
