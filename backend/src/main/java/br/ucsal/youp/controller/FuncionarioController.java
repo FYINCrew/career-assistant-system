@@ -79,4 +79,5 @@ public class FuncionarioController {
         return ResponseEntity.ok(funcionarioService.updateScore(scoreDTO));
     }
 
+
 }

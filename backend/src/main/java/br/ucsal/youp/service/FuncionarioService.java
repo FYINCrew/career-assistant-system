@@ -6,7 +6,6 @@ import br.ucsal.youp.dto.FuncionarioDTO;
 import br.ucsal.youp.exception.BadRequestException;
 import br.ucsal.youp.mapper.FuncionarioMapper;
 import br.ucsal.youp.model.Funcionario;
-import br.ucsal.youp.repository.CargoRepository;
 import br.ucsal.youp.repository.FuncionarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -15,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -22,7 +22,6 @@ public class FuncionarioService {
 
     private final FuncionarioRepository funcionarioRepository;
 
-    private final CargoRepository cargoRepository;
 
     public Page<Funcionario> listAll(Pageable pageable){
         return funcionarioRepository.findAll(pageable);
@@ -47,10 +46,6 @@ public class FuncionarioService {
     @Transactional
     public Funcionario save(FuncionarioDTO funcionarioDTO) {
         Funcionario funcionario = FuncionarioMapper.INSTANCE.toFuncionario(funcionarioDTO);
-        funcionario.setCargoAtual(cargoRepository.findById(funcionarioDTO.cargoAtualId()).
-                orElseThrow(() -> new RuntimeException("Cargo não encontrado")));
-        funcionario.setCargoFuturo(cargoRepository.findById(funcionarioDTO.cargoFuturoId()).
-                orElseThrow(() -> new RuntimeException("Cargo não encontrado")));
         return funcionarioRepository.save(funcionario);
     }
 
@@ -62,6 +57,7 @@ public class FuncionarioService {
         funcionarioRepository.save(funcionario);
         return funcionario;
     }
+
 
     public void executarScript(){
         try {
@@ -88,7 +84,6 @@ public class FuncionarioService {
 
     @Transactional
     public void replace(FuncionarioDTO funcionarioDTO) {
-//       Funcionario savedFuncionario = findByIdOrThrowBadRequestException(funcionarioDTO.id());
         Funcionario funcionario = FuncionarioMapper.INSTANCE.toFuncionario(funcionarioDTO);
         funcionarioRepository.save(funcionario);
 

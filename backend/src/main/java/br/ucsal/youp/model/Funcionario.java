@@ -1,7 +1,6 @@
 package br.ucsal.youp.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,18 +31,10 @@ public class Funcionario {
 
     private double score;
 
-    @ManyToOne
-    @JoinColumn(name = "cargo_atual_id")
-    private Cargo cargoAtual;
+    private String cargoAtual;
 
-    @ManyToOne
-    @JoinColumn(name = "cargo_futuro_id")
-    private Cargo cargoFuturo;
+    private String cargoFuturo;
 
-//    @OneToOne(mappedBy = "funcionario")
-//    private TrilhaCarreira trilhaCarreira;
-
-
-
+    private Set<String> tecnologias = new HashSet<>();
 
 }
