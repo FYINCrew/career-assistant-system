@@ -7,12 +7,16 @@ import br.ucsal.youp.exception.BadRequestException;
 import br.ucsal.youp.mapper.FuncionarioMapper;
 import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.repository.FuncionarioRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.util.List;
 import java.util.Set;
 
@@ -51,24 +55,48 @@ public class FuncionarioService {
 
     @Transactional
     public Funcionario updateScore(AddScore scoreDTO) {
-        executarScript();
-        Funcionario funcionario = findByIdFuncionarioOrThrowBadRequestException(scoreDTO.id());
+        Funcionario funcionario = executarScript(findByIdFuncionarioOrThrowBadRequestException(scoreDTO.id()));
+//        Funcionario funcionario = findByIdFuncionarioOrThrowBadRequestException(scoreDTO.id());
         funcionario.setScore(scoreDTO.score());
         funcionarioRepository.save(funcionario);
         return funcionario;
     }
 
 
-    public void executarScript(){
+    public Funcionario executarScript(Funcionario funcionario){
         try {
             ProcessBuilder processBuilder = new ProcessBuilder(
                     "python3",
                     "backend/src/main/java/br/ucsal/youp/scripts/script.py"
             );
             processBuilder.inheritIO();
-            processBuilder.start();
+            Process process = processBuilder.start();
+
+
+            ObjectMapper mapper = new ObjectMapper();
+            String jsonInput = mapper.writeValueAsString(funcionario);
+
+
+            OutputStream os = process.getOutputStream();
+            os.write(jsonInput.getBytes());
+            os.flush();
+            os.close();
+
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            StringBuilder output = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                output.append(line);
+            }
+
+
+            Funcionario funcionarioAtualizado = mapper.readValue(output.toString(), Funcionario.class);
+            return funcionarioAtualizado;
+
         } catch (Exception e) {
             e.printStackTrace();
+            return funcionario;
         }
     }
 
