@@ -1,4 +1,4 @@
 package br.ucsal.youp.dto;
 
-public record AddScore(Double score, Long id) {
+public record AddScore(Long id) {
 }
