@@ -51,6 +51,8 @@ public class FuncionarioService {
                 .orElseThrow(() -> new BadRequestException("Funcionário não encontrado"));
     }
 
+
+
     @Transactional
     public Funcionario save(FuncionarioDTO funcionarioDTO) {
         // Use o novo método que configura as relações
