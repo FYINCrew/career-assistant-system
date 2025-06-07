@@ -7,9 +7,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Data
 @AllArgsConstructor
@@ -28,14 +31,17 @@ public class Funcionario {
 
     private String senha;
 
-    private String experiencia;
-
+    @JsonManagedReference // Indica o lado "pai" da relação
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
+    private List<Experiencia> experiencias = new ArrayList<>();
+    
+    // Método auxiliar para adicionar experiências
+    public void addExperiencia(Experiencia experiencia) {
+        experiencias.add(experiencia);
+        experiencia.setFuncionario(this);
+    }
+    
     private String cargoAtual;
 
     private String cargoFuturo;
-
-    private Set<String> tecnologias = new HashSet<>();
-
-    @ElementCollection
-    private List<Score> scores;
 }
