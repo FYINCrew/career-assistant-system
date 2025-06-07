@@ -17,10 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -47,6 +45,8 @@ public class FuncionarioService {
                 .orElseThrow(() -> new BadRequestException("Funcionário não encontrado"));
     }
 
+
+
     @Transactional
     public Funcionario save(FuncionarioDTO funcionarioDTO) {
         Funcionario funcionario = FuncionarioMapper.INSTANCE.toFuncionario(funcionarioDTO);
@@ -57,7 +57,7 @@ public class FuncionarioService {
     public Funcionario updateScore(AddScore scoreDTO) {
         Funcionario funcionario = executarScript(findByIdFuncionarioOrThrowBadRequestException(scoreDTO.id()));
 //        Funcionario funcionario = findByIdFuncionarioOrThrowBadRequestException(scoreDTO.id());
-        // funcionario.setScore(scoreDTO.score());
+        funcionario.setScore(scoreDTO.score());
         funcionarioRepository.save(funcionario);
         return funcionario;
     }
@@ -65,20 +65,10 @@ public class FuncionarioService {
 
     public Funcionario executarScript(Funcionario funcionario){
         try {
-
-            List<String> listTecnologias = new ArrayList<>(funcionario.getTecnologias());
-
-            String tecnologiasJson = listTecnologias.stream()
-                    .map(s -> "\"" + s + "\"")
-                    .collect(Collectors.joining(",", "[", "]"));
-
             ProcessBuilder processBuilder = new ProcessBuilder(
-                    "venv/Scripts/python.exe",
-                    "backend/src/main/java/br/ucsal/youp/scripts/script.py",
-                    "--texto", funcionario.getExperiencia(),
-                    "--tecnologia", tecnologiasJson
+                    "python3",
+                    "backend/src/main/java/br/ucsal/youp/scripts/script.py"
             );
-
             processBuilder.inheritIO();
             Process process = processBuilder.start();
 
@@ -97,9 +87,7 @@ public class FuncionarioService {
             StringBuilder output = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
-                if (line.trim().startsWith("{ \"texto\"")) {
-                    output.append(line);
-                }
+                output.append(line);
             }
 
 
