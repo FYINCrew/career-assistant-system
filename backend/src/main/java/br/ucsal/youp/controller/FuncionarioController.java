@@ -73,9 +73,10 @@ public class FuncionarioController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping("/score")
+    @PutMapping("/ai_score")
     public ResponseEntity<Funcionario> setScore(@RequestBody AddScore scoreDTO){
 //        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        System.err.println("CHAMOU AQUI");
         return ResponseEntity.ok(funcionarioService.updateScore(scoreDTO));
     }
 
