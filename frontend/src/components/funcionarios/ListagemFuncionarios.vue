@@ -3,22 +3,41 @@ import Card from 'primevue/card';
 import InputText from 'primevue/inputtext';
 import Select from 'primevue/select';
 
-
+import Chip from 'primevue/chip'
 import Column from 'primevue/column';
 import Button from 'primevue/button';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { DataTable } from 'primevue';
+import { type funcionario } from '@/components/funcionarios/dataFuncionario'
+import router from '@/router';
+import useService from '@/composables/useService';
+
+const { funcionarioService } = useService()
 
 const value1 = ref();
 const value2 = ref();
 const value3 = ref();
+const listagemFuncionarios = ref();
 
+onMounted(() => {
+    funcionarioService.listarFuncionarios().then((response) => {
+        
+        
+        listagemFuncionarios.value = response.content.map((funcionario: funcionario) => {
+            return {
+                id: funcionario.id,
+                nome: funcionario.nome,
+                cargo: funcionario.cargoAtual,
+                score: funcionario.score
+            }
+        });
 
-type funcionario = {
-    nome: string,
-    cargo: string,
-    promocaoRecomendada: boolean
-}
+        console.log('Funcionários carregados:', listagemFuncionarios.value);
+    }).catch((error) => {
+        console.error('Erro ao carregar funcionários:', error);
+    });
+});
+
 
 type teste = {
     name: string
@@ -26,23 +45,11 @@ type teste = {
 
 const teste = ref<teste[]>([{ name: 'teste1' }, { name: 'teste2' }, { name: 'teste3' }])
 
-const data = ref<funcionario[]>([{ nome: "Ana Souza", cargo: "Analista de Marketing", promocaoRecomendada: true },
-{ nome: "Carlos Lima", cargo: "Desenvolvedor Backend", promocaoRecomendada: false },
-{ nome: "Fernanda Rocha", cargo: "Coordenadora de Projetos", promocaoRecomendada: true },
-{ nome: "João Pereira", cargo: "Designer UX/UI", promocaoRecomendada: false },
-{ nome: "Mariana Oliveira", cargo: "Gerente de Produto", promocaoRecomendada: true },
-{ nome: "Lucas Fernandes", cargo: "Analista de Dados", promocaoRecomendada: false },
-{ nome: "Patrícia Castro", cargo: "Desenvolvedora Frontend", promocaoRecomendada: true },
-{ nome: "Ricardo Mendes", cargo: "Especialista em Segurança", promocaoRecomendada: false },
-{ nome: "Tatiane Ribeiro", cargo: "Scrum Master", promocaoRecomendada: true },
-{ nome: "Eduardo Silva", cargo: "Engenheiro DevOps", promocaoRecomendada: false }])
-
-
 const verDetalhes = (param: any) => {
-    alert(param.data)
+    router.push({ name: 'detalharFuncionarios', params: { id: param } })
 }
 
-function limparFiltros(){
+function limparFiltros() {
     value1.value = '';
     value2.value = '';
     value3.value = '';
@@ -66,7 +73,7 @@ function limparFiltros(){
                     <Select v-model="value3" :options="teste" optionLabel="name" placeholder="Filtro 3"
                         class="w-full md:w-56" showClear />
                     <Button label="Limpar Filtros" variant="link" @click="limparFiltros" />
-                    <Button label="Pesquisar" />
+                    <Button label="Pesquisar"/>
                 </template>
             </Card>
         </div>
@@ -74,18 +81,36 @@ function limparFiltros(){
     <div>
         <Card class="m-10">
             <template #content>
-                <DataTable :value="data" paginator :rows="5" :rowsPerPageOptions="[5,10, 20, 50]"
+                <DataTable :value="listagemFuncionarios" paginator :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]"
                     tableStyle="min-width: 50rem">
-                    <Column field="nome" header="Nome" style="width: 25%"></Column>
-                    <Column field="cargo" header="Cargo" style="width: 25%"></Column>
-                    <Column field="promocaoRecomendada" header="Promoção Recomendada" style="width: 25%">
+                    <Column field="nome" header="Nome" sortable style="text-align: center;" 
+                      :pt="{
+                        columnHeaderContent: {
+                            class: 'justify-center',
+                        },
+                    }"></Column>
+                    <Column style="text-align: center;" field="cargo" header="Cargo" :pt="{
+                        columnHeaderContent: {
+                            class: 'justify-center',
+                        },
+                    }" ></Column>
+                    <Column  field="score" header="Score" style="width: 25%; text-align: center;" sortable :pt="{
+                        columnHeaderContent: {
+                            class: 'justify-center',
+                        },
+                    }">
                         <template #body="slotProps">
-                            {{ slotProps.data.promocaoRecomendada ? 'Sim' : 'Não' }}
+                            <Chip :label="slotProps.data.score"
+                                :style="{ backgroundColor: slotProps.data.score >= 80 ? '#4caf50' : slotProps.data.score >= 50 ? '#ff9800' : '#f44336', color: '#fff' }" />
                         </template>
                     </Column>
-                    <Column header="Detalhes">
+                    <Column style="text-align: center;" header="Detalhes" :pt="{
+                        columnHeaderContent: {
+                            class: 'justify-center',
+                        },
+                    }">
                         <template #body="slotProps">
-                            <Button label="Leia Mais" @click="verDetalhes(slotProps.data)" size="small" />
+                            <Button label="Leia Mais" @click="verDetalhes(slotProps.data.id)" size="small" />
                         </template>
                     </Column>
                 </DataTable>
