@@ -9,6 +9,12 @@ const router = createRouter({
       component: () =>
         import("@/components/funcionarios/ListagemFuncionarios.vue"),
     },
+    {
+      path: "/detalhar-funcionarios/:id",
+      name: "detalharFuncionarios",
+      component: () =>
+        import("@/components/funcionarios/DetalharFuncionario.vue"),
+    },
   ],
 })
 
