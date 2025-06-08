@@ -11,6 +11,7 @@
 <style>
 @import "tailwindcss";
 @import "tailwindcss-primeui";
+@import 'primeicons/primeicons.css';
 
 * {
   font-family: 'Inter', sans-serif;

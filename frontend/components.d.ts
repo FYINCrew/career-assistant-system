@@ -8,10 +8,20 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Avatar: typeof import('primevue/avatar')['default']
+    Button: typeof import('primevue/button')['default']
+    Card: typeof import('primevue/card')['default']
     DetalharFuncionario: typeof import('./src/components/funcionarios/DetalharFuncionario.vue')['default']
+    Image: typeof import('primevue/image')['default']
     InitialComponent: typeof import('./src/components/InitialComponent.vue')['default']
+    InputText: typeof import('primevue/inputtext')['default']
     ListagemFuncionarios: typeof import('./src/components/funcionarios/ListagemFuncionarios.vue')['default']
+    Panel: typeof import('primevue/panel')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Select: typeof import('primevue/select')['default']
+  }
+  export interface ComponentCustomProperties {
+    Tooltip: typeof import('primevue/tooltip')['default']
   }
 }
