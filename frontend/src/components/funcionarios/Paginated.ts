@@ -1,6 +1,7 @@
 export default interface Paginated<T> {
     content: T[];
-    total: number;
     page: number;
-    perPage: number;
+    totalElements: number;
+    totalPages: number;
+    size:number;
 }
