@@ -134,5 +134,4 @@ public class FuncionarioController {
         Funcionario updatedFuncionario = funcionarioService.updateScore(scoreDTO);
         return ResponseEntity.ok(responseMapper.toResponseDTO(updatedFuncionario));
     }
-
 }
