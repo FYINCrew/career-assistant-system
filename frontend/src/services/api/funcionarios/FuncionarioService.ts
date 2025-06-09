@@ -19,4 +19,15 @@ export default class FuncionarioService extends ApiService {
       return error
     }
   }
+
+
+  async detalharFuncionario(id:string): Promise<funcionario> {
+    try {
+      const response = await this.apiInstance.get(`/funcionarios/${id}`)
+      return response.data
+    } catch (error: AxiosError | any) {
+      toast.error(error.response.data.mensagem)
+      return error
+    }
+  }
 }

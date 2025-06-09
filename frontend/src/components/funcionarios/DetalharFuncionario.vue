@@ -1,3 +1,26 @@
+<script lang="ts" setup>
+import useService from '@/composables/useService';
+import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+
+
+const { funcionarioService } = useService()
+const route = useRoute();
+const funcionarioId = route.params.id;
+
+onMounted(async () => {
+    await funcionarioService.detalharFuncionario(funcionarioId as string).then((response) => {
+        console.log(response);
+    }).catch((error) => {
+        console.error('Erro ao carregar funcionário:', error);
+    });
+    
+})
+
+
+
+</script>
+
 <template>
     <section id="detalhes-funcionario" class="flex flex-col items-center justify-center m-8 bg-white">
         <div>
@@ -37,8 +60,7 @@
 
     <section class="px-10 py-1">
         <div>
-            <Panel toggleable collapsed
-                class=" !bg-gray-50 !border-primary-200 rounded-lg shadow ">
+            <Panel toggleable collapsed class=" !bg-gray-50 !border-primary-200 rounded-lg shadow ">
                 <template #header>
                     <div class="flex items-center justify-between">
                         <span class="text-xl font-semibold">Habilidades</span>
@@ -73,6 +95,4 @@
     </section>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
