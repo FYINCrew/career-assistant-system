@@ -8,10 +8,21 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Accordion: typeof import('primevue/accordion')['default']
+    AccordionContent: typeof import('primevue/accordioncontent')['default']
+    AccordionHeader: typeof import('primevue/accordionheader')['default']
+    AccordionPanel: typeof import('primevue/accordionpanel')['default']
+    Button: typeof import('primevue/button')['default']
+    Chip: typeof import('primevue/chip')['default']
     DetalharFuncionario: typeof import('./src/components/funcionarios/DetalharFuncionario.vue')['default']
+    Image: typeof import('primevue/image')['default']
     InitialComponent: typeof import('./src/components/InitialComponent.vue')['default']
     ListagemFuncionarios: typeof import('./src/components/funcionarios/ListagemFuncionarios.vue')['default']
+    Panel: typeof import('primevue/panel')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+  }
+  export interface ComponentCustomProperties {
+    Tooltip: typeof import('primevue/tooltip')['default']
   }
 }
