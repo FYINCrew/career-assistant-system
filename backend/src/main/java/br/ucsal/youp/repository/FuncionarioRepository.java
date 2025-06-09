@@ -17,10 +17,10 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
     List<Funcionario> findByNome(String nome);
     Funcionario findByEmailAndSenha(String email, String senha);
 
-    @EntityGraph(attributePaths = {"experiencias", "experiencias.scores"})
+    @EntityGraph(attributePaths = {"experiencias"})
     Optional<Funcionario> findWithExperienciasById(Long id);
     
-    @EntityGraph(attributePaths = {"experiencias", "experiencias.scores"})
+    @EntityGraph(attributePaths = {"experiencias"})
     Page<Funcionario> findAll(Pageable pageable);
 
 }

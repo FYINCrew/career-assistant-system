@@ -81,8 +81,8 @@ public class FuncionarioService {
             String experienciasJson = mapper.writeValueAsString(funcionario); // Envie o objeto completo
 
             ProcessBuilder processBuilder = new ProcessBuilder(
-                "C:\\Users\\prjlu\\Desktop\\tcc\\career-assistant-system\\venv\\Scripts\\python.exe",
-                "C:/Users/prjlu/Desktop/tcc/career-assistant-system/backend/src/main/java/br/ucsal/youp/scripts/script.py"
+                "..\\venv\\Scripts\\python.exe",
+                "src\\main\\java\\br\\ucsal\\youp\\scripts\\script.py"
             );
             
             processBuilder.redirectErrorStream(true);
