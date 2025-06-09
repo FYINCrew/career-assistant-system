@@ -13,6 +13,8 @@ import br.ucsal.youp.model.Score;
 @Mapper(componentModel = "spring")
 public interface FuncionarioResponseMapper {
     
+    @Mapping(target = "cargoAtualId", source = "cargoAtual.id")
+    @Mapping(target = "cargoDesejadoId", source = "cargoDesejado.id")
     FuncionarioResponseDTO toResponseDTO(Funcionario funcionario);
     
     List<FuncionarioResponseDTO> toListResponseDTO(List<Funcionario> funcionarios);
