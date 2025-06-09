@@ -6,8 +6,8 @@ public record FuncionarioResponseDTO(
     Long id,
     String nome,
     String email,
-    String cargoAtual,
-    String cargoFuturo,
+    Long cargoAtualId,
+    Long cargoDesejadoId,
     List<ExperienciaResponseDTO> experiencias
 ) {
     public record ExperienciaResponseDTO(
