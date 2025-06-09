@@ -14,6 +14,7 @@ public class Config {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/funcionarios").allowedOrigins("*");
+                registry.addMapping("/cargos").allowedOrigins("*");
             }
         };
     }
