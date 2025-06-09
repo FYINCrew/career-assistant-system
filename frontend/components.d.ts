@@ -8,12 +8,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AutoComplete: typeof import('primevue/autocomplete')['default']
     Avatar: typeof import('primevue/avatar')['default']
     Button: typeof import('primevue/button')['default']
     Card: typeof import('primevue/card')['default']
     DetalharFuncionario: typeof import('./src/components/funcionarios/DetalharFuncionario.vue')['default']
     Image: typeof import('primevue/image')['default']
     InitialComponent: typeof import('./src/components/InitialComponent.vue')['default']
+    InputNumber: typeof import('primevue/inputnumber')['default']
     InputText: typeof import('primevue/inputtext')['default']
     ListagemFuncionarios: typeof import('./src/components/funcionarios/ListagemFuncionarios.vue')['default']
     Panel: typeof import('primevue/panel')['default']
