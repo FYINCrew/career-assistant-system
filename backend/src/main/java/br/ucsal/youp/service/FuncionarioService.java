@@ -9,6 +9,7 @@ import br.ucsal.youp.model.Experiencia;
 import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.model.Score;
 import br.ucsal.youp.repository.FuncionarioRepository;
+import br.ucsal.youp.repository.CargoRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -30,6 +31,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class FuncionarioService {
 
+    private final CargoRepository cargoRepository;
     private final FuncionarioRepository funcionarioRepository;
     private final FuncionarioMapper funcionarioMapper;
 
@@ -51,14 +53,36 @@ public class FuncionarioService {
                 .orElseThrow(() -> new BadRequestException("Funcionário não encontrado"));
     }
 
-
-
     @Transactional
     public Funcionario save(FuncionarioDTO funcionarioDTO) {
-        // Use o novo método que configura as relações
         Funcionario funcionario = funcionarioMapper.toFuncionario(funcionarioDTO);
+
+        if (funcionarioDTO.cargoAtualId() != null) {
+            funcionario.setCargoAtual(
+                cargoRepository.findById(funcionarioDTO.cargoAtualId())
+                    .orElseThrow(() -> new RuntimeException("Cargo Atual não encontrado"))
+            );
+        }
+
+        if (funcionarioDTO.cargoDesejadoId() != null) {
+            funcionario.setCargoDesejado(
+                cargoRepository.findById(funcionarioDTO.cargoDesejadoId())
+                    .orElseThrow(() -> new RuntimeException("Cargo Desejado não encontrado"))
+            );
+        }
+
+        if (funcionario.getExperiencias() != null) {
+            funcionario.getExperiencias().forEach(exp -> {
+                exp.setFuncionario(funcionario);
+                if (exp.getScores() != null) {
+                    exp.getScores().forEach(score -> score.setExperiencia(exp));
+                }
+            });
+        }
+
         return funcionarioRepository.save(funcionario);
     }
+
 
     @Transactional
     public Funcionario updateScore(AddScore scoreDTO) {

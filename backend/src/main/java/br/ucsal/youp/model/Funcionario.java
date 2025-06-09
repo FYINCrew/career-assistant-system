@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Data
@@ -38,7 +39,13 @@ public class Funcionario {
         experiencia.setFuncionario(this);
     }
     
-    private String cargoAtual;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cargo_atual_id")
+    @JsonBackReference
+    private Cargo cargoAtual;
 
-    private String cargoFuturo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cargo_desejado_id")
+    @JsonBackReference
+    private Cargo cargoDesejado;
 }
