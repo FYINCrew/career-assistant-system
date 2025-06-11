@@ -12,6 +12,7 @@ type experiencia = {
     id: number,
     texto: string,
     score: score[]
+    scoreTotal: number
 }
 
 type score = {
