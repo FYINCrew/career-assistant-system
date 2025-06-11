@@ -12,7 +12,6 @@ import { type funcionario } from '@/components/funcionarios/funcionarioType'
 import router from '@/router';
 import useService from '@/composables/useService';
 import { cargosExample, type cargo } from '../cargos/cargoType';
-import type Paginated from './Paginated';
 
 const { funcionarioService } = useService()
 
@@ -69,7 +68,7 @@ async function carregarFuncionarios(event?: any) {
             return {
                 id: funcionario.id,
                 nome: funcionario.nome,
-                cargo: funcionario.cargoAtual,
+                cargo: funcionario.cargoAtual.nome,
             }
         });
 
