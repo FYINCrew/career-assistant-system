@@ -1,9 +1,11 @@
+import type { cargo } from "../cargos/cargoType"
+
 export type funcionario = {
     id: number,
     nome: string,
     email:string,
-    cargoAtual: string,
-    cargoFuturo: string,
+    cargoAtual: cargo,
+    cargoDesejado: cargo,
     experiencias: experiencia[],
     promocaoRecomendada: boolean,
 }
@@ -11,7 +13,7 @@ export type funcionario = {
 type experiencia = {
     id: number,
     texto: string,
-    score: score[]
+    scores: score[]
     scoreTotal: number
 }
 
