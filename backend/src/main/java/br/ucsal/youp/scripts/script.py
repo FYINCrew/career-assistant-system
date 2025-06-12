@@ -10,14 +10,14 @@ from sentence_transformers import SentenceTransformer
 sys.stdin = io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8')
 
 if __name__ == "__main__":
+    modelo_carregado = joblib.load('modelo_mlp_treinado.pkl')
+    model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
     try:
         INPUT_DATA = sys.stdin.read()
         profile = loads(INPUT_DATA)
         for exp in profile["experiencias"]:
             texto = str(exp["texto"])
             scores = exp["scores"]
-            modelo_carregado = joblib.load('modelo_mlp_treinado.pkl')
-            model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
             embedding_texto = model.encode([texto.lower()])
             techs = []
             sum_scores = 0
