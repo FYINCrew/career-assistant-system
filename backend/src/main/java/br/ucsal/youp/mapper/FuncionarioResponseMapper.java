@@ -5,7 +5,7 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import br.ucsal.youp.dto.FuncionarioResponseDTO;
+import br.ucsal.youp.dto.funcionario.FuncionarioResponseDTO;
 import br.ucsal.youp.model.Experiencia;
 import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.model.Score;

@@ -5,7 +5,7 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import br.ucsal.youp.dto.RequisitoDTO;
+import br.ucsal.youp.dto.requisito.RequisitoDTO;
 import br.ucsal.youp.model.Requisito;
 
 @Mapper(componentModel = "spring")

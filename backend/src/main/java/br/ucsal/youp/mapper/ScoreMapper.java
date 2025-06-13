@@ -5,7 +5,7 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import br.ucsal.youp.dto.ScoreDTO;
+import br.ucsal.youp.dto.score.ScoreDTO;
 import br.ucsal.youp.model.Score;
 
 @Mapper(componentModel = "spring")

@@ -1,9 +1,9 @@
 package br.ucsal.youp.controller;
 
-import br.ucsal.youp.dto.AddScore;
-import br.ucsal.youp.dto.FuncionarioDTO;
-import br.ucsal.youp.dto.FuncionarioLoginDTO;
-import br.ucsal.youp.dto.FuncionarioResponseDTO;
+import br.ucsal.youp.dto.score.AddScore;
+import br.ucsal.youp.dto.funcionario.FuncionarioDTO;
+import br.ucsal.youp.dto.funcionario.FuncionarioLoginDTO;
+import br.ucsal.youp.dto.funcionario.FuncionarioResponseDTO;
 import br.ucsal.youp.mapper.FuncionarioResponseMapper;
 import br.ucsal.youp.model.Funcionario;
 import br.ucsal.youp.service.FuncionarioService;

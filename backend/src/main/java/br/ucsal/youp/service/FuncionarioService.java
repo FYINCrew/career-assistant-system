@@ -1,8 +1,8 @@
 package br.ucsal.youp.service;
 
 
-import br.ucsal.youp.dto.AddScore;
-import br.ucsal.youp.dto.FuncionarioDTO;
+import br.ucsal.youp.dto.score.AddScore;
+import br.ucsal.youp.dto.funcionario.FuncionarioDTO;
 import br.ucsal.youp.exception.BadRequestException;
 import br.ucsal.youp.mapper.FuncionarioMapper;
 import br.ucsal.youp.model.Experiencia;

@@ -1,7 +1,7 @@
 package br.ucsal.youp.controller;
 
-import br.ucsal.youp.dto.CargoDTO;
-import br.ucsal.youp.dto.CargoResponseDTO;
+import br.ucsal.youp.dto.cargo.CargoDTO;
+import br.ucsal.youp.dto.cargo.CargoResponseDTO;
 import br.ucsal.youp.mapper.CargoResponseMapper;
 import br.ucsal.youp.model.Cargo;
 import br.ucsal.youp.service.CargoService;

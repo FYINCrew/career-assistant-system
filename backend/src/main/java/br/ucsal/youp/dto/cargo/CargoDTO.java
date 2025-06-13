@@ -1,4 +1,6 @@
-package br.ucsal.youp.dto;
+package br.ucsal.youp.dto.cargo;
+
+import br.ucsal.youp.dto.requisito.RequisitoDTO;
 
 import java.util.List;
 

@@ -1,4 +1,6 @@
-package br.ucsal.youp.dto;
+package br.ucsal.youp.dto.funcionario;
+
+import br.ucsal.youp.dto.cargo.CargoDTO;
 
 import java.util.List;
 

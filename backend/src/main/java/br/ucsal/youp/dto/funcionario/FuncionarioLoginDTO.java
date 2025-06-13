@@ -1,4 +1,4 @@
-package br.ucsal.youp.dto;
+package br.ucsal.youp.dto.funcionario;
 
 import jakarta.validation.constraints.NotEmpty;
 

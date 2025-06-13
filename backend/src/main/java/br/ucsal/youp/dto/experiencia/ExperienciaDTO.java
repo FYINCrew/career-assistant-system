@@ -1,4 +1,6 @@
-package br.ucsal.youp.dto;
+package br.ucsal.youp.dto.experiencia;
+
+import br.ucsal.youp.dto.score.ScoreDTO;
 
 import java.util.List;
 

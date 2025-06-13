@@ -1,6 +1,6 @@
 package br.ucsal.youp.service;
 
-import br.ucsal.youp.dto.CargoDTO;
+import br.ucsal.youp.dto.cargo.CargoDTO;
 import br.ucsal.youp.exception.BadRequestException;
 import br.ucsal.youp.mapper.CargoMapper;
 import br.ucsal.youp.model.Cargo;
