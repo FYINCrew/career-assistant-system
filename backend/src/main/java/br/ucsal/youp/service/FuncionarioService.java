@@ -56,6 +56,15 @@ public class FuncionarioService {
                 predicates.add(cb.equal(root.get("cargoAtual").get("id"), filtro.cargoId()));
             }
 
+            if (filtro.ensinoSuperior() != null) {
+                Boolean ensinoSuperior = Boolean.parseBoolean(String.valueOf(filtro.ensinoSuperior()));
+                predicates.add(cb.equal(root.get("ensinoSuperior"), ensinoSuperior));
+            }
+
+            if (filtro.tempoExperiencia() != null) {
+                predicates.add(cb.greaterThanOrEqualTo(root.get("tempoExperiencia"), filtro.tempoExperiencia()));
+            }
+
             return cb.and(predicates.toArray(new Predicate[0]));
         }, pageable);
     }
