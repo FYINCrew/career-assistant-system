@@ -9,4 +9,7 @@ public record FuncionarioDTO(Long id,
     String senha,
     List<ExperienciaDTO> experiencias,
     Long cargoAtualId,
-    Long cargoDesejadoId) {}
+    Long cargoDesejadoId,
+    Long tempoExperiencia,
+    Boolean ensinoSuperior
+    ) {}
