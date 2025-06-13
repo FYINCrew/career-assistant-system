@@ -8,9 +8,12 @@ public record FuncionarioResponseDTO(
     Long id,
     String nome,
     String email,
+    Boolean ensinoSuperior,
+    Long tempoExperiencia,
     CargoDTO cargoAtual,
     CargoDTO cargoDesejado,
     List<ExperienciaResponseDTO> experiencias
+
 ) {
     public record ExperienciaResponseDTO(
         Long id,
