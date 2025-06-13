@@ -1,5 +1,6 @@
 package br.ucsal.youp.controller;
 
+import br.ucsal.youp.dto.funcionario.FuncionarioFiltroDTO;
 import br.ucsal.youp.dto.score.AddScore;
 import br.ucsal.youp.dto.funcionario.FuncionarioDTO;
 import br.ucsal.youp.dto.funcionario.FuncionarioLoginDTO;
@@ -44,8 +45,8 @@ public class FuncionarioController {
     // }
 
     @GetMapping
-    public ResponseEntity<Page<FuncionarioResponseDTO>> list(Pageable pageable) {
-        Page<Funcionario> funcionarios = funcionarioService.listAll(pageable);
+    public ResponseEntity<Page<FuncionarioResponseDTO>> list(Pageable pageable, @ModelAttribute FuncionarioFiltroDTO filtro) {
+        Page<Funcionario> funcionarios = funcionarioService.listAll(filtro, pageable);
         return ResponseEntity.ok(funcionarios.map(responseMapper::toResponseDTO));
     }
 
