@@ -29,15 +29,18 @@ public class Funcionario {
 
     private String senha;
 
+    // Indica se possui ensino superior completo
+    @Column(name = "ensino_superior")
+    private Boolean ensinoSuperior;
+
+    @Column(name = "tempo_experiencia")
+    private Long tempoExperiencia; // Tempo de experiência em anos
+
+
+
     @JsonManagedReference // Indica o lado "pai" da relação
     @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
     private List<Experiencia> experiencias = new ArrayList<>();
-    
-    // Método auxiliar para adicionar experiências
-    public void addExperiencia(Experiencia experiencia) {
-        experiencias.add(experiencia);
-        experiencia.setFuncionario(this);
-    }
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cargo_atual_id")
@@ -48,4 +51,10 @@ public class Funcionario {
     @JoinColumn(name = "cargo_desejado_id")
     @JsonBackReference
     private Cargo cargoDesejado;
+
+    // Método auxiliar para adicionar experiências
+    public void addExperiencia(Experiencia experiencia) {
+        experiencias.add(experiencia);
+        experiencia.setFuncionario(this);
+    }
 }

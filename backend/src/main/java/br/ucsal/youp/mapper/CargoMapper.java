@@ -1,6 +1,6 @@
 package br.ucsal.youp.mapper;
 
-import br.ucsal.youp.dto.CargoDTO;
+import br.ucsal.youp.dto.cargo.CargoDTO;
 import br.ucsal.youp.model.Cargo;
 
 import org.mapstruct.AfterMapping;

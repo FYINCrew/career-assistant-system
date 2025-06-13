@@ -1,6 +1,6 @@
 package br.ucsal.youp.mapper;
 
-import br.ucsal.youp.dto.FuncionarioDTO;
+import br.ucsal.youp.dto.funcionario.FuncionarioDTO;
 import br.ucsal.youp.model.Funcionario;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

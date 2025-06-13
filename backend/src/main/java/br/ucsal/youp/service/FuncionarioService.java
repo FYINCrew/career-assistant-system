@@ -1,8 +1,9 @@
 package br.ucsal.youp.service;
 
 
-import br.ucsal.youp.dto.AddScore;
-import br.ucsal.youp.dto.FuncionarioDTO;
+import br.ucsal.youp.dto.funcionario.FuncionarioFiltroDTO;
+import br.ucsal.youp.dto.score.AddScore;
+import br.ucsal.youp.dto.funcionario.FuncionarioDTO;
 import br.ucsal.youp.exception.BadRequestException;
 import br.ucsal.youp.mapper.FuncionarioMapper;
 import br.ucsal.youp.model.Experiencia;
@@ -11,6 +12,7 @@ import br.ucsal.youp.model.Score;
 import br.ucsal.youp.repository.FuncionarioRepository;
 import br.ucsal.youp.repository.CargoRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,9 +24,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import java.util.stream.Collectors;
 
 @Service
@@ -36,8 +40,33 @@ public class FuncionarioService {
     private final FuncionarioMapper funcionarioMapper;
 
 
-    public Page<Funcionario> listAll(Pageable pageable) {
-        return funcionarioRepository.findAll(pageable); // Agora funcionará corretamente
+    public Page<Funcionario> listAll(FuncionarioFiltroDTO filtro, Pageable pageable) {
+        return funcionarioRepository.findAll((root, query, cb) -> {
+            List<Predicate> predicates = new ArrayList<>();
+
+            if (filtro.nome() != null && !filtro.nome().isBlank()) {
+                predicates.add(cb.like(cb.lower(root.get("nome")), "%" + filtro.nome().toLowerCase() + "%"));
+            }
+
+            if (filtro.email() != null && !filtro.email().isBlank()) {
+                predicates.add(cb.like(cb.lower(root.get("email")), "%" + filtro.email().toLowerCase() + "%"));
+            }
+
+            if (filtro.cargoId() != null) {
+                predicates.add(cb.equal(root.get("cargoAtual").get("id"), filtro.cargoId()));
+            }
+
+            if (filtro.ensinoSuperior() != null) {
+                Boolean ensinoSuperior = Boolean.parseBoolean(String.valueOf(filtro.ensinoSuperior()));
+                predicates.add(cb.equal(root.get("ensinoSuperior"), ensinoSuperior));
+            }
+
+            if (filtro.tempoExperiencia() != null) {
+                predicates.add(cb.greaterThanOrEqualTo(root.get("tempoExperiencia"), filtro.tempoExperiencia()));
+            }
+
+            return cb.and(predicates.toArray(new Predicate[0]));
+        }, pageable);
     }
 
     public List<Funcionario> listAllNonPageable() {
