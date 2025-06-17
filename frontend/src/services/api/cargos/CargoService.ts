@@ -10,6 +10,16 @@ export default class CargoService extends ApiService {
     super('', null)
   }
 
+  async listarCargos(): Promise<cargo[]> {
+    try {
+      const response = await this.apiInstance.get('/cargos/all')
+      return response.data
+    } catch (error: AxiosError | any) {
+      toast.error(error.response.data.mensagem)
+      return error
+    }
+  }
+
   async buscarCargoPorId(id: number): Promise<cargo> {
     try {
       const response = await this.apiInstance.get('/cargos/' + id)
