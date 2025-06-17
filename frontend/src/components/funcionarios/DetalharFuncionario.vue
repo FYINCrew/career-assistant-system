@@ -3,9 +3,12 @@ import useService from '@/composables/useService';
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import type { funcionario } from './funcionarioType';
+import router from '@/router';
+import { useToast } from 'primevue/usetoast';
 
 
 const { funcionarioService } = useService()
+const toast = useToast();
 const route = useRoute();
 const funcionarioId = route.params.id;
 
@@ -20,11 +23,10 @@ onMounted(async () => {
         nome.value = response.nome;
         cargoAtual.value = response.cargoAtual.nome;
         cargoAlmejado.value = response.cargoDesejado.nome;
-        funcionarioDetalhes.value = response;
-        console.log('Cargo Atual:', response);
+        funcionarioDetalhes.value = response; //testar observando isso aqui
     }).catch((error) => {
-            console.error('Erro ao carregar funcionário:', error);
-        });
+        console.error('Erro ao carregar funcionário:', error);
+    });
 })
 
 const classificacaoScore = (score: number) => {
@@ -38,14 +40,25 @@ const classificacaoScore = (score: number) => {
         return 'Intermediário';
     } else if (score >= 40 && score <= 49) {
         return 'Básico';
+    } else{
+        return 'Média Não Calculada';
     }
 }
 
-
+const calcularScore = (id: number) => {
+    funcionarioService.calcularScores(id).then((response) => {
+        toast.add({ severity: 'success', summary: 'Sucesso', detail: 'Score calculado com sucesso!', life: 3000 });
+    }).catch((error) => {
+        console.error('Erro ao calcular scores:', error);
+         toast.add({ severity: 'error', summary: 'Erro', detail: 'Ocorreu um erro ao calcular o Score!', life: 3000 });
+    });
+}
 
 </script>
 
 <template>
+    <Toast />
+    <template></template>
     <section id="detalhes-funcionario" class="flex flex-col items-center justify-center m-8 bg-white">
         <div>
             <div class="flex flex-col items-center justify-center gap-4">
@@ -96,13 +109,15 @@ const classificacaoScore = (score: number) => {
                                 <strong class="text-primary ml-2">Tecnologias</strong>
                                 <div class="flex flex-wrap gap-2 mt-1">
                                     <div class="flex flex-col gap-2 mt-1">
-                                        <Chip 
-                                            v-tooltip.right="classificacaoScore(score.score)"
+                                        <Chip v-tooltip.right="classificacaoScore(score.score)"
                                             v-for="(score, i) in experiencia.scores" :key="i"
                                             class="bg-blue-100 text-blue-800 ml-2 mt-2">
                                             <strong>{{ score.tecnologia.toUpperCase() }}</strong>
 
-                                            <Badge class="ml-auto" severity="sucess">
+                                            <Badge
+                                                class="ml-auto !bg-gray-700 !text-white"
+                                                :severity="score.score > 40 ? 'success' : 'undefined'"
+                                            >
                                                 {{ score.score }}
                                             </Badge>
                                         </Chip>
@@ -117,10 +132,17 @@ const classificacaoScore = (score: number) => {
             </Panel>
         </div>
     </section>
-    <section class="px-10 py-1">
-        <div>
-        </div>
-    </section>
+    <div class="flex justify-end px-10 py-2 ">
+        <Button
+            class="!text-primary-900 !bg-primary-100 hover:!bg-primary-200 hover:!text-primary-900 transition-colors duration-200 mr-3"
+            label="Voltar" variant="link" icon="pi pi-angle-left" @click=" router.push({name:'listarFuncionarios'}) " />
+        <Button
+            class="!text-primary-900 !bg-primary-400 !text-[1.15rem] hover:!bg-primary-500 hover:!text-primary-100 !transition-colors !ease-in-out !duration-300 teste"
+            icon="pi pi-calculator"  label="Calcular Média" @click="calcularScore(Number.parseInt(funcionarioId as string))"  />
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+
+</style>

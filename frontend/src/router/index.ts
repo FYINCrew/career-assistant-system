@@ -5,7 +5,7 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "initialComponent",
+      name: "listarFuncionarios",
       component: () =>
         import("@/components/funcionarios/ListagemFuncionarios.vue"),
     },
