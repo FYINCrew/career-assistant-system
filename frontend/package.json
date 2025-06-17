@@ -28,6 +28,7 @@
     "@primevue/auto-import-resolver": "^4.3.3",
     "@tsconfig/node22": "^22.0.1",
     "@types/node": "^22.14.0",
+    "@types/vue-resource": "^0.9.34",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/tsconfig": "^0.7.0",
     "npm-run-all2": "^7.0.2",
