@@ -26,6 +26,9 @@ public class Cargo {
 
     private String descricao;
 
+    @Column(unique = true)
+    private String sigla;
+
     @JsonManagedReference // Indica o lado "pai" da relação
     @OneToMany(mappedBy = "cargo", cascade = CascadeType.ALL)
     private List<Requisito> requisitos = new ArrayList<>();

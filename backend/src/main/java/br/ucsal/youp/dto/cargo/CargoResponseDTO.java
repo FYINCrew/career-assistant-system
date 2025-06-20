@@ -6,6 +6,7 @@ public record CargoResponseDTO(
     Long id,
     String nome,
     String descricao,
+    String sigla,
     List<RequisitoResponseDTO> requisitos
 ) {
     public record RequisitoResponseDTO(
