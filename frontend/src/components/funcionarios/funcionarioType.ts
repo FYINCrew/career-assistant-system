@@ -7,14 +7,15 @@ export type funcionario = {
     cargoAtual: cargo,
     cargoDesejado: cargo,
     experiencias: experiencia[],
-    promocaoRecomendada: boolean,
+    ensinoSuperior: boolean,
+    tempoExperiencia: number,
 }
 
 type experiencia = {
     id: number,
     texto: string,
     scores: score[]
-    scoreTotal: number
+    scoreMedia: number
 }
 
 type score = {
