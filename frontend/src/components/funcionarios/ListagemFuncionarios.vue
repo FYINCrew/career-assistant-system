@@ -6,14 +6,16 @@ import Select from 'primevue/select';
 import Chip from 'primevue/chip'
 import Column from 'primevue/column';
 import Button from 'primevue/button';
-import { onMounted, ref, watch } from 'vue';
+import Toolbar from 'primevue/toolbar';
+import { computed, onMounted, ref, watch } from 'vue';
 import { DataTable, InputNumber } from 'primevue';
 import { type funcionario } from '@/components/funcionarios/funcionarioType'
 import router from '@/router';
 import useService from '@/composables/useService';
-import { cargosExample, type cargo } from '../cargos/cargoType';
+import { type cargo } from '../cargos/cargoType';
 import { useConfirm } from 'primevue/useconfirm';
 import { useToast } from 'primevue/usetoast';
+import MyToolbar from '../menu/MyToolbar.vue';
 
 const { funcionarioService, cargoService } = useService()
 
@@ -21,6 +23,7 @@ const cargoFiltro = ref<cargo>();
 const tempoExperienciaFiltro = ref();
 const ensinoSuperiorFiltro = ref();
 const listagemFuncionarios = ref();
+const listagemFuncionariosTeste = ref<funcionario[]>([]);
 
 const totalRegistros = ref(0);
 const pagina = ref(0);
@@ -69,30 +72,28 @@ async function carregarFuncionarios(event?: any) {
         })
         .then(
             async (response) => {
-
-
                 listagemFuncionarios.value = response.content.map((funcionario: funcionario) => {
                     return {
                         id: funcionario.id,
                         nome: funcionario.nome,
                         cargo: funcionario.cargoAtual.nome,
+                        tempoExperiencia: funcionario.tempoExperiencia ? `${funcionario.tempoExperiencia} anos` : 'Não informado',
+                        ensinoSuperior: funcionario.ensinoSuperior ? 'Sim' : 'Não',
                     }
                 });
+
+                listagemFuncionariosTeste.value = response.content;
 
                 pagina.value = response.page;
                 totalRegistros.value = response.totalElements;
 
                 loading.value = false;
-
-
-
-
             })
 }
 
 function buscarCargo(event: { query: string }) {
     cargosFiltrados.value = cargos.value.filter(c =>
-        c.nome.toLowerCase().includes(event.query.toLowerCase())
+        c.nome?.toLowerCase().includes(event.query.toLowerCase())
     );
 
 }
@@ -105,6 +106,21 @@ async function carregarCargos() {
         console.error('Erro ao carregar cargos:', error);
     });
 }
+
+const mediasGerais = computed(() => {
+    return listagemFuncionariosTeste.value.reduce((acc: Record<number, number>, func) => {
+        const exps = func.experiencias;
+        const media =
+            exps && exps.length > 0
+                ? Math.round(exps.reduce((soma, exp) => soma + exp.scoreMedia, 0) / exps.length)
+                : 0;
+
+        acc[func.id] = media;
+        return acc;
+    }, {});
+});
+
+
 
 const confirmImport = useConfirm();
 const toast = useToast();
@@ -137,20 +153,39 @@ const confirm = (id: number) => {
     });
 };
 
+function getCorPorScore(score: number): string {
+    if (score >= 80 && score <= 89) {
+        return '#35DD49'; // Verde esmeralda
+    } else if (score >= 70 && score < 80) {
+        return '#0EA5E9'; // Azul vívido
+    } else if (score >= 60 && score < 70) {
+        return '#FFF000'; // Roxo vibrante
+    } else if (score >= 50 && score < 60) {
+        return '#EE5586'; // Rosa moderno EB2B68
+    } else if (score >= 40 && score < 50) {
+        return '#F51D1D'; // Âmbar escuro
+    } else if (score == 90) {
+        return '#DE3BEC'; // Âmbar escuro
+    }else {
+        return '#9CA3AF'; // Cinza neutro (para score inválido)
+    }
+
+}
 
 </script>
 
 <template>
+
     <Toast />
     <ConfirmDialog />
-
+    <MyToolbar />
     <div>
         <div>
             <Card class="m-10">
                 <div class="mb-8 "></div>
                 <template #title>
                     <div class="mb-4">
-                        <span class="font-medium">Pesquisar Funcionários</span>
+                        <span class="text-2xl font-medium text-black">Pesquisar Funcionários</span>
                     </div>
                 </template>
                 <template #content>
@@ -159,7 +194,7 @@ const confirm = (id: number) => {
                             @complete="buscarCargo" optionLabel="nome" empty-search-message="Cargo não encontrado."
                             placeholder="Selecione um Cargo" />
 
-                        <InputNumber v-model="tempoExperienciaFiltro" placeholder="Tempo de Experiência (em anos)"
+                        <InputNumber v-model="tempoExperienciaFiltro" placeholder="Experiência Mínima (em anos)"
                             :min="1" class="w-full md:w-72" />
                         <Select v-model="ensinoSuperiorFiltro" :options="teste" empty-message="Filtro não encontrado"
                             placeholder="Ensino Superior Completo" class="w-full md:w-70" showClear option-value="value"
@@ -189,37 +224,59 @@ const confirm = (id: number) => {
                         </div>
                     </template>
 
-                    <Column field="nome" header="Nome" style="text-align: center;" :pt="{
+                    <Column field="nome" header="Nome" style="text-align: center; font-size: 17px; color: black;" :pt="{
                         columnHeaderContent: {
-                            class: 'justify-center',
+                            class: 'justify-center !text-[20px]',
                         },
                     }">
                     </Column>
-                    <Column style=" text-align: center;" field="cargo" header="Cargo" :pt="{
-                        columnHeaderContent: {
-                            class: 'justify-center',
-                        },
-                    }"></Column>
-                    <Column field="score" header="Score" style="width: 25%; text-align: center;" :pt="{
-                        columnHeaderContent: {
-                            class: 'justify-center',
-                        },
-                    }">
+                    <Column style=" text-align: center; font-size: 17px; color: black;" field="cargo" header="Cargo"
+                        :pt="{
+                            columnHeaderContent: {
+                                class: 'justify-center !text-[20px]',
+                            },
+                        }"></Column>
+                    <Column style="width:15%; text-align: center; font-size: 17px; color: black;"
+                        field="tempoExperiencia" header="Tempo de Experiência" :pt="{
+                            columnHeaderContent: {
+                                class: 'justify-center !text-[20px]',
+                            },
+                        }"></Column>
+                    <Column style=" text-align: center; font-size: 17px; color: black;" field="ensinoSuperior"
+                        header="Ensino Superior" :pt="{
+                            columnHeaderContent: {
+                                class: 'justify-center !text-[20px]',
+                            },
+                        }"></Column>
+                    <Column field="score" header="Score" style=" text-align: center; font-size: 17px; color: black;"
+                        :pt="{
+                            columnHeaderContent: {
+                                class: 'justify-center !text-[20px]',
+                            },
+                        }">
                         <template #body="slotProps">
-                            <Chip :label="slotProps.data.score"
-                                :style="{ backgroundColor: slotProps.data.score >= 80 ? '#4caf50' : slotProps.data.score >= 50 ? '#ff9800' : '#f44336', color: '#fff' }" />
+                            <Chip class="font-medium" :label="mediasGerais[slotProps.data.id]"
+                                :style="{ backgroundColor: getCorPorScore(mediasGerais[slotProps.data.id]) }" />
                         </template>
                     </Column>
-                    <Column style="text-align: center;" header="Detalhes" :pt="{
+                    <Column style="text-align: center; font-size: 17px; color: black;" header="Ações" :pt="{
                         columnHeaderContent: {
-                            class: 'justify-center',
+                            class: 'justify-center !text-[20px]',
                         },
                     }">
                         <template #body="slotProps">
                             <Button v-tooltip.top="'Visualizar Funcionário'" icon="pi pi-eye" class="!text-black"
-                                @click="verDetalhes(slotProps.data.id)" size="small" :link=true />
+                                @click="verDetalhes(slotProps.data.id)" size="small" :link=true>
+                                <template #icon>
+                                    <i class="pi pi-eye !text-base"></i>
+                                </template>
+                            </Button>
                             <Button v-tooltip.top="'Calcular Score'" icon="pi pi-calculator" class="!text-black"
-                                @click="confirm(slotProps.data.id)" size="small" :link=true />
+                                @click="confirm(slotProps.data.id)" size="small" :link=true>
+                                <template #icon>
+                                    <i class="pi pi-calculator !text-base"></i>
+                                </template>
+                            </Button>
                         </template>
 
                     </Column>
