@@ -1,6 +1,7 @@
 package br.ucsal.youp.controller;
 
 import br.ucsal.youp.dto.cargo.CargoDTO;
+import br.ucsal.youp.dto.cargo.CargoFiltroDTO;
 import br.ucsal.youp.dto.cargo.CargoResponseDTO;
 import br.ucsal.youp.mapper.CargoResponseMapper;
 import br.ucsal.youp.model.Cargo;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,8 +43,8 @@ public class CargoController {
     // }
 
     @GetMapping
-    public ResponseEntity<Page<CargoResponseDTO>> list(Pageable pageable) {
-        Page<Cargo> cargos = cargoService.listAll(pageable);
+    public ResponseEntity<Page<CargoResponseDTO>> list(@PageableDefault(sort = "id") Pageable pageable, @ModelAttribute CargoFiltroDTO cargoFiltroDTO) {
+        Page<Cargo> cargos = cargoService.listAll(pageable, cargoFiltroDTO);
         return ResponseEntity.ok(cargos.map(responseMapper::toResponseDTO));
     }
 
