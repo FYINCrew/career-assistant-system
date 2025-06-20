@@ -58,8 +58,8 @@ const calcularScore = (id: number) => {
 
 <template>
     <Toast />
-    <template></template>
-    <section id="detalhes-funcionario" class="flex flex-col items-center justify-center m-8 bg-white">
+    <MyToolbar />
+    <section id="detalhes-funcionario" class="flex flex-col items-center justify-center m-8">
         <div>
             <div class="flex flex-col items-center justify-center gap-4">
                 <div class="bg-primary-50 rounded-lg p-4 shadow">
@@ -94,7 +94,7 @@ const calcularScore = (id: number) => {
                                 </span>
                                 <Chip class="!bg-primary-100 !text-primary-900 mr-4">
                                     <span class="font-semibold ">
-                                        {{ experiencia.scoreTotal ?? 'Média Não Calculada' }}
+                                        {{ experiencia.scoreMedia !== null ? experiencia.scoreMedia + ' Pontos' : 'Média Não Calculada' }}
                                     </span>
                                 </Chip>
                             </div>
@@ -115,8 +115,8 @@ const calcularScore = (id: number) => {
                                             <strong>{{ score.tecnologia.toUpperCase() }}</strong>
 
                                             <Badge
-                                                class="ml-auto !bg-gray-700 !text-white"
-                                                :severity="score.score > 40 ? 'success' : 'undefined'"
+                                                class="ml-auto !text-white"
+                                                :severity="score.score >= 40 ? 'success' : 'contrast'"
                                             >
                                                 {{ score.score }}
                                             </Badge>

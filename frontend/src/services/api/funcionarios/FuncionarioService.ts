@@ -3,6 +3,7 @@ import type { funcionario } from '@/components/funcionarios/funcionarioType'
 import ApiService from '../ApiService'
 import type { AxiosError } from 'axios'
 import toast from '@/plugins/vueToast'
+import filtrarParametrosIndefinidos from '../utils/filtrarParametrosUndefined'
 
 export default class FuncionarioService extends ApiService {
   constructor(token: string | null) {
@@ -10,7 +11,7 @@ export default class FuncionarioService extends ApiService {
   }
 
   async listarFuncionarios(params?: any): Promise<Paginated<funcionario>> {
-    const searchParams = new URLSearchParams(this.filtrarParametrosIndefinidos(params)).toString()
+    const searchParams = new URLSearchParams(filtrarParametrosIndefinidos(params)).toString()
     try {
       const response = await this.apiInstance.get(`/funcionarios?${searchParams}`)
       return response.data
@@ -42,9 +43,5 @@ export default class FuncionarioService extends ApiService {
     }
   }
 
-  private filtrarParametrosIndefinidos<T extends Record<string, any>>(params: T): Partial<T> {
-    return Object.fromEntries(
-      Object.entries(params).filter(([_, value]) => value !== undefined)
-    ) as Partial<T>;
-  }
+
 }
