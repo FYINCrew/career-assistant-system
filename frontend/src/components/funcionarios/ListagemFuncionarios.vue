@@ -16,6 +16,7 @@ import { type cargo } from '../cargos/cargoType';
 import { useConfirm } from 'primevue/useconfirm';
 import { useToast } from 'primevue/usetoast';
 import MyToolbar from '../menu/MyToolbar.vue';
+import { getClassificacaoPorScore, getCorPorScore } from '@/commons/classificarPorScore';
 
 const { funcionarioService, cargoService } = useService()
 
@@ -153,24 +154,6 @@ const confirm = (id: number) => {
     });
 };
 
-function getCorPorScore(score: number): string {
-    if (score >= 80 && score <= 89) {
-        return '#35DD49'; // Verde esmeralda
-    } else if (score >= 70 && score < 80) {
-        return '#0EA5E9'; // Azul vívido
-    } else if (score >= 60 && score < 70) {
-        return '#FFF000'; // Roxo vibrante
-    } else if (score >= 50 && score < 60) {
-        return '#EE5586'; // Rosa moderno EB2B68
-    } else if (score >= 40 && score < 50) {
-        return '#F51D1D'; // Âmbar escuro
-    } else if (score == 90) {
-        return '#DE3BEC'; // Âmbar escuro
-    }else {
-        return '#9CA3AF'; // Cinza neutro (para score inválido)
-    }
-
-}
 
 </script>
 
@@ -255,7 +238,7 @@ function getCorPorScore(score: number): string {
                             },
                         }">
                         <template #body="slotProps">
-                            <Chip class="font-medium" :label="mediasGerais[slotProps.data.id]"
+                            <Chip v-tooltip.top="getClassificacaoPorScore(mediasGerais[slotProps.data.id], 'Média não Calculada')" class="font-medium" :label="mediasGerais[slotProps.data.id] || 'N/A'"
                                 :style="{ backgroundColor: getCorPorScore(mediasGerais[slotProps.data.id]) }" />
                         </template>
                     </Column>
