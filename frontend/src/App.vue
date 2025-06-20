@@ -2,19 +2,26 @@
 </script>
 
 <template>
-  <header>
-   
-  </header>
+   <Toast />
   <RouterView />
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+SC&display=swap');
 @import "tailwindcss";
 @import "tailwindcss-primeui";
 @import 'primeicons/primeicons.css';
 
-* {
-  font-family: 'Inter', sans-serif;
+body{
+  background-color: #F1F5F9;
+}
+
+
+.wdxl-lubrifont-sc-regular {
+  font-family: "WDXL Lubrifont SC", sans-serif !important;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.6rem;
 }
 
 header {
