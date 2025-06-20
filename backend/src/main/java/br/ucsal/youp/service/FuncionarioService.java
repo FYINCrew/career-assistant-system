@@ -187,7 +187,7 @@ public class FuncionarioService {
         for (Experiencia exp : funcionario.getExperiencias()) {
             Map<String, Object> dados = resultado.get(exp.getId());
             if (dados != null) {
-                exp.setTotal_score((Double) dados.get("total_score"));
+                exp.setScoreMedia((Double) dados.get("scoreMedia"));
 
                 List<Map<String, Object>> novosScores = (List<Map<String, Object>>) dados.get("scores");
 

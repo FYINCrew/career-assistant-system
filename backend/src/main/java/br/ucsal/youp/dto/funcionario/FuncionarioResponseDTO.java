@@ -18,7 +18,8 @@ public record FuncionarioResponseDTO(
     public record ExperienciaResponseDTO(
         Long id,
         String texto,
-        List<ScoreResponseDTO> scores
+        List<ScoreResponseDTO> scores,
+        double scoreMedia
     ) {}
     
     public record ScoreResponseDTO(

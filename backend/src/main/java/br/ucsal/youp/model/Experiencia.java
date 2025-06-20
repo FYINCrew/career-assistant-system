@@ -24,7 +24,8 @@ public class Experiencia {
     @Column(columnDefinition = "TEXT")
     private String texto;
 
-    private double total_score;
+    @Column(name = "score_media", nullable = true)
+    private Double scoreMedia;
 
     @JsonBackReference // Indica o lado "filho" da relação
     @ManyToOne(fetch = FetchType.LAZY)
