@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router';
 import type { funcionario } from './funcionarioType';
 import router from '@/router';
 import { useToast } from 'primevue/usetoast';
+import { getClassificacaoPorScore, getCorPorScore } from '@/commons/classificarPorScore';
 
 
 const { funcionarioService } = useService()
@@ -28,22 +29,6 @@ onMounted(async () => {
         console.error('Erro ao carregar funcionário:', error);
     });
 })
-
-const classificacaoScore = (score: number) => {
-    if (score >= 80 && score <= 90) {
-        return 'Expert';
-    } else if (score >= 70 && score <= 79) {
-        return 'Avançado';
-    } else if (score >= 60 && score <= 69) {
-        return 'Proficiente';
-    } else if (score >= 50 && score <= 59) {
-        return 'Intermediário';
-    } else if (score >= 40 && score <= 49) {
-        return 'Básico';
-    } else{
-        return 'Média Não Calculada';
-    }
-}
 
 const calcularScore = (id: number) => {
     funcionarioService.calcularScores(id).then((response) => {
@@ -75,7 +60,7 @@ const calcularScore = (id: number) => {
 
     <section class="px-10 py-1">
         <div>
-            <Panel toggleable class=" !bg-gray-50 !border-primary-200 rounded-lg shadow ">
+            <Panel toggleable class=" !bg-gray-50 !border-primary-200 rounded-lg shadow-lg">
                 <template #header>
                     <div class="flex items-center justify-between">
                         <span class="text-xl font-semibold">Experiências</span>
@@ -109,14 +94,14 @@ const calcularScore = (id: number) => {
                                 <strong class="text-primary ml-2">Tecnologias</strong>
                                 <div class="flex flex-wrap gap-2 mt-1">
                                     <div class="flex flex-col gap-2 mt-1">
-                                        <Chip v-tooltip.right="classificacaoScore(score.score)"
+                                        <Chip v-tooltip.right="getClassificacaoPorScore(score.score, 'Pontos não Calculados')"
                                             v-for="(score, i) in experiencia.scores" :key="i"
                                             class="bg-blue-100 text-blue-800 ml-2 mt-2">
                                             <strong>{{ score.tecnologia.toUpperCase() }}</strong>
 
                                             <Badge
                                                 class="ml-auto !text-white"
-                                                :severity="score.score >= 40 ? 'success' : 'contrast'"
+                                                :style="{ backgroundColor: getCorPorScore(score.score) }"
                                             >
                                                 {{ score.score }}
                                             </Badge>
