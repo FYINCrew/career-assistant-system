@@ -122,7 +122,7 @@ const calcularScore = (id: number) => {
             class="!text-primary-900 !bg-primary-100 hover:!bg-primary-200 hover:!text-primary-900 transition-colors duration-200 mr-3"
             label="Voltar" variant="link" icon="pi pi-angle-left" @click=" router.push({name:'listarFuncionarios'}) " />
         <Button
-            class="!text-primary-900 !bg-primary-400 !text-[1.15rem] hover:!bg-primary-500 hover:!text-primary-100 !transition-colors !ease-in-out !duration-300 teste"
+            class="!text-primary-900 !bg-primary-400 !text-[1.15rem] hover:!bg-primary-500 hover:!text-primary-100 !transition-colors !ease-in-out !duration-300"
             icon="pi pi-calculator"  label="Calcular Média" @click="calcularScore(Number.parseInt(funcionarioId as string))"  />
     </div>
 </template>
