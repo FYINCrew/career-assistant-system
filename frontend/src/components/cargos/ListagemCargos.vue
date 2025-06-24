@@ -177,7 +177,7 @@ const limparFiltros = async () => {
 
                     </Column>
 
-                    <Column style="text-align: center; width: 25%; font-size:17px; color: black;" header="Detalhes" :pt="{
+                    <Column style="text-align: center; width: 25%; font-size:17px; color: black;" header="Ações" :pt="{
                         columnHeaderContent: {
                             class: 'justify-center !text-[22px]',
                         },
