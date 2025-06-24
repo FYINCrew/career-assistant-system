@@ -33,7 +33,7 @@ export default class CargoService extends ApiService {
     }
   }
 
-  async buscarCargoPorId(id: number): Promise<cargo> {
+  async buscarCargoPorId(id: string): Promise<cargo> {
     try {
       const response = await this.apiInstance.get('/cargos/' + id)
       return response.data
