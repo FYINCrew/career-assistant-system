@@ -134,8 +134,8 @@ public class FuncionarioService {
             String experienciasJson = mapper.writeValueAsString(funcionario); // Envie o objeto completo
 
             ProcessBuilder processBuilder = new ProcessBuilder(
-                "..\\venv\\Scripts\\python.exe",
-                "src\\main\\java\\br\\ucsal\\youp\\scripts\\script.py"
+                    "..\\venv\\Scripts\\python.exe",
+                    "src\\main\\java\\br\\ucsal\\youp\\scripts\\script.py"
             );
             
             processBuilder.redirectErrorStream(true);
@@ -164,7 +164,7 @@ public class FuncionarioService {
                         List<Map<String, Object>> scoreList = (List<Map<String, Object>>) map.get("scores");
 
                         Map<String, Object> dadosExperiencia = new HashMap<>();
-                        dadosExperiencia.put("total_score", totalScore);
+                        dadosExperiencia.put("scoreMedia", totalScore);
                         dadosExperiencia.put("scores", scoreList);
 
                         resultado.put(id, dadosExperiencia);

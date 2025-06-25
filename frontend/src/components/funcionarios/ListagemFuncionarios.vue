@@ -17,6 +17,7 @@ import { useConfirm } from 'primevue/useconfirm';
 import { useToast } from 'primevue/usetoast';
 import MyToolbar from '../menu/MyToolbar.vue';
 import { getClassificacaoPorScore, getCorPorScore } from '@/commons/classificarPorScore';
+import MyModal from '../menu/MyModal.vue';
 
 const { funcionarioService, cargoService } = useService()
 
@@ -26,9 +27,11 @@ const ensinoSuperiorFiltro = ref();
 const listagemFuncionarios = ref();
 const listagemFuncionariosTeste = ref<funcionario[]>([]);
 
+const loading = ref(false);
+const modalVisible = ref(false);
+
 const totalRegistros = ref(0);
 const pagina = ref(0);
-const loading = ref(false);
 const cargos = ref<cargo[]>([]);
 const cargosFiltrados = ref<cargo[]>([]);
 
@@ -141,27 +144,29 @@ const confirm = (id: number) => {
         },
         accept: async () => {
             loading.value = true;
+            modalVisible.value = true;
             await funcionarioService.calcularScores(id).then(() => {
                 toast.add({ severity: 'success', summary: 'Sucesso', detail: 'Score calculado com sucesso!', life: 3000 });
+                carregarFuncionarios();
             }).catch((error) => {
                 console.error('Erro ao calcular média:', error);
                 toast.add({ severity: 'error', summary: 'Erro', detail: 'Não foi possível calcular o Score.', life: 3000 });
             }).finally(() => {
+                modalVisible.value = false;
                 loading.value = false;
             });
 
         }
     });
 };
-
-
 </script>
 
 <template>
-
+    <MyModal v-model:visible="modalVisible"/>
     <Toast />
     <ConfirmDialog />
     <MyToolbar />
+
     <div>
         <div>
             <Card class="m-10">
@@ -238,7 +243,9 @@ const confirm = (id: number) => {
                             },
                         }">
                         <template #body="slotProps">
-                            <Chip v-tooltip.top="getClassificacaoPorScore(mediasGerais[slotProps.data.id], 'Média não Calculada')" class="font-medium" :label="mediasGerais[slotProps.data.id] || 'N/A'"
+                            <Chip
+                                v-tooltip.top="getClassificacaoPorScore(mediasGerais[slotProps.data.id], 'Média não Calculada')"
+                                class="font-medium" :label="mediasGerais[slotProps.data.id] || 'N/A'"
                                 :style="{ backgroundColor: getCorPorScore(mediasGerais[slotProps.data.id]) }" />
                         </template>
                     </Column>
@@ -271,6 +278,4 @@ const confirm = (id: number) => {
     </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

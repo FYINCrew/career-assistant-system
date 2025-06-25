@@ -97,6 +97,7 @@ nav a:first-of-type {
         var(--_g) 100% 50%;
     background-size: calc(100%/3) 50%;
     animation: l3 1s infinite linear;
+    
 }
 
 @keyframes l3 {
@@ -116,4 +117,14 @@ nav a:first-of-type {
         background-position: 0% 50%, 50% 50%, 100% 100%
     }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Sevillana&family=WDXL+Lubrifont+SC&display=swap');
+.fraseRobo{
+  font-family: "WDXL Lubrifont SC", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem;
+  color: #05af19;
+}
+
 </style>

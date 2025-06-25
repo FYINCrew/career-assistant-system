@@ -10,15 +10,15 @@ export function getCorPorScore(score: number): string {
 }
 
 export function getClassificacaoPorScore(score: number, message: string): string {
-    if (score >= 80 && score <= 90) {
+    if (score >= 80 && score < 90) {
         return 'Expert';
-    } else if (score >= 70 && score <= 79) {
+    } else if (score >= 70 && score < 80) {
         return 'Avançado';
-    } else if (score >= 60 && score <= 69) {
+    } else if (score >= 60 && score < 70) {
         return 'Proficiente';
-    } else if (score >= 50 && score <= 59) {
+    } else if (score >= 50 && score < 60) {
         return 'Intermediário';
-    } else if (score >= 40 && score <= 49) {
+    } else if (score >= 40 && score < 50) {
         return 'Básico';
     } else if (score == 90) {
         return 'Especialista';
