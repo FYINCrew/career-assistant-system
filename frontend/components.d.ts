@@ -40,6 +40,7 @@ declare module 'vue' {
     ListarCargos: typeof import('./src/components/cargos/listarCargos.vue')['default']
     Menu: typeof import('./src/components/menu/Menu.vue')['default']
     MyMenu: typeof import('./src/components/menu/MyMenu.vue')['default']
+    MyModal: typeof import('./src/components/menu/MyModal.vue')['default']
     MyToolbar: typeof import('./src/components/menu/MyToolbar.vue')['default']
     Panel: typeof import('primevue/panel')['default']
     ProgressSpinner: typeof import('primevue/progressspinner')['default']
