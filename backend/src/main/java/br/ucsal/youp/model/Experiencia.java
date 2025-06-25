@@ -24,7 +24,7 @@ public class Experiencia {
     @Column(columnDefinition = "TEXT")
     private String texto;
 
-    @Column(name = "score_media", nullable = true)
+    @Column(name = "score_media")
     private Double scoreMedia;
 
     @JsonBackReference // Indica o lado "filho" da relação
